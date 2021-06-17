@@ -1,0 +1,20 @@
+
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^7255\.by$ [OR]
+RewriteCond %{HTTP_HOST} ^www\.7255\.by$
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/.+$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\ Comodo\ DCV)?$
+RewriteRule ^/?$ "https\:\/\/e\-zoo\.by" [R=301,L]
+
+
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+deny from 5.45.69.16
+
+
+
+
+

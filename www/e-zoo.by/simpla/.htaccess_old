@@ -1,0 +1,5 @@
+AddType application/octet-stream csv
+AuthName "Simpla CMS"
+AuthType Basic
+AuthUserFile /public_html/e-zoo.voloshin.by/www/e-zoo.by/simpla/.passwd
+require valid-user

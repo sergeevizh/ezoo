@@ -1,0 +1,3589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/fonts.min.css">
+    <link rel="stylesheet" href="../css/normalize.min.css">
+    <link rel="stylesheet" href="../js/lib/jquery.fancybox/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="../js/lib/jquery.formstyler/jquery.formstyler.min.css">
+    <link rel="stylesheet" href="../js/lib/jquery.mCustomScrollbar/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="../js/lib/jquery.slick/slick.min.css">
+    <link rel="stylesheet" href="../js/lib/jquery-ui-1.11.4/jquery-ui.min.css">
+    <link rel="stylesheet" href="../js/lib/jquery.carouselTicker/carouselTicker.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="stylesheet" href="../css/media.css">
+    <link rel="stylesheet" href="../css/theme-green.min.css">
+
+    <title>Бонусы</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header__top top-block js-top-block">
+        <div class="wrapper">
+          <div class="top-block__content">
+            <div class="top-block__nav">
+              <ul class="top-nav">
+
+                <li class="top-nav__item">
+                  <a data-page="1" href="http://ezo.voloshin.by/" class="top-nav__link">Главная</a>
+                </li>
+
+                <li class="top-nav__item">
+                  <a data-page="3" href="http://ezo.voloshin.by/dostavka" class="top-nav__link">Доставка</a>
+                </li>
+
+                <li class="top-nav__item">
+                  <a data-page="2" href="http://ezo.voloshin.by/oplata" class="top-nav__link">Оплата</a>
+                </li>
+
+
+                <li class="top-nav__item">
+                  <a data-page="6" href="http://ezo.voloshin.by/contact" class="top-nav__link">Контакты</a>
+                </li>
+
+
+
+
+                <li class="top-nav__item">
+                  <a data-page="11" href="http://ezo.voloshin.by/nashi-magaziny" class="top-nav__link">Наши магазины</a>
+                </li>
+
+
+
+
+
+
+                <li class="top-nav__item">
+                  <a data-page="21" href="http://ezo.voloshin.by/bonusnaya-programma" class="top-nav__link">Бонусы</a>
+                </li>
+
+
+
+
+
+
+
+                <li class="top-nav__item">
+                  <a data-page="33" href="http://ezo.voloshin.by/vtoroj-shans" class="top-nav__link">Второй шанс</a>
+                </li>
+
+
+
+
+
+              </ul>
+            </div>
+
+            <div class="top-block__contacts">
+              <div class="top-contacts">
+
+                <a href="tel: 7255" class="top-contacts__phone">
+                  <div class="h5">Тел: 7255</div>
+                </a>
+
+                <span class="top-contacts__schedule" style=" margin-right: 2rem;">
+
+                  <i class="icon icon-schedule"></i> Пн-Вс 09:00–21:00
+                </span>
+
+              </div>
+
+            </div>
+
+            <div class="top-block__account">
+              <div class="account-field">
+
+
+                <div class="account-map">
+                  <style>
+                    #regions-window ul {
+                      width: 100%;
+                      columns: 3;
+                      list-style: none;
+                    }
+
+                    #regions-window .popup-form-row {
+                      margin-bottom: 0.5rem;
+                    }
+
+                    #regions-window .popup-form-row input[type=radio] {
+                      margin-right: 15px;
+                      width: 18px;
+                      height: 18px;
+                      vertical-align: middle;
+                    }
+
+                    #regions-window .popup-form-row label {
+                      cursor: pointer;
+                    }
+
+                    #regions-window .popup-btn-row {
+                      padding-top: 1.5rem;
+                    }
+
+                    a.a_js-popup-link {
+                      text-decoration: none;
+                      color: #40403f;
+                    }
+
+                    #regions-window form {
+                      display: flex;
+                      flex-wrap: wrap;
+                    }
+
+                    #regions-window button {
+                      padding: 0 20px;
+                    }
+
+                    #regions-window.popup-window {
+                      width: 70rem;
+                    }
+
+                    @media (max-width: 967px) {
+                      #regions-window ul {
+                        columns: 1;
+                      }
+                    }
+                  </style>
+                  <div class="hidden">
+                    <div class="popup-window" id="regions-window">
+                      <form class="js-validation-form" method="GET" novalidate="novalidate">
+                        <h2>Выберите город: </h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <ul>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Барановичи">Барановичи</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Бегомль">Бегомль</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Белыничи">Белыничи</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="50" type="radio"
+                                name="short_name" value="Береза">Береза</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="1" type="radio"
+                                name="short_name" value="Бобруйск">Бобруйск</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Борисов">Борисов</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="47" type="radio"
+                                name="short_name" value="Брест">Брест</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="34" type="radio"
+                                name="short_name" value="Буда Кошелево">Буда Кошелево</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Витебск">Витебск</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="35" type="radio"
+                                name="short_name" value="Волковыск">Волковыск</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="42" type="radio"
+                                name="short_name" value="Вороново">Вороново</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Глубокое">Глубокое</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="25" type="radio"
+                                name="short_name" value="Глуск">Глуск</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="2" type="radio"
+                                name="short_name" value="Гомель">Гомель</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="27" type="radio"
+                                name="short_name" value="Гродно">Гродно</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="32" type="radio"
+                                name="short_name" value="Дворец">Дворец</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="28" type="radio"
+                                name="short_name" value="Добруш">Добруш</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="49" type="radio"
+                                name="short_name" value="Дрогичин">Дрогичин</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="39" type="radio"
+                                name="short_name" value="Дятлово">Дятлово</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="21" type="radio"
+                                name="short_name" value="Жлобин">Жлобин</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Жодино">Жодино</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="36" type="radio"
+                                name="short_name" value="Зельва ">Зельва </label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="57" type="radio"
+                                name="short_name" value="Иваново">Иваново</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="58" type="radio"
+                                name="short_name" value="Ивацевичи">Ивацевичи</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Ивье">Ивье</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="52" type="radio"
+                                name="short_name" value="Каменец">Каменец</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="59" type="radio"
+                                name="short_name" value="Кировск">Кировск</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="60" type="radio"
+                                name="short_name" value="Кличев">Кличев</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="56" type="radio"
+                                name="short_name" value="Кобрин">Кобрин</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="40" type="radio"
+                                name="short_name" value="Лида">Лида</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Логойск">Логойск</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="31" type="radio"
+                                name="short_name" value="Лоев">Лоев</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="48" type="radio"
+                                name="short_name" value="Малорита">Малорита</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="1067" type="radio"
+                                name="short_name" value="Минск">Минск</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Могилев">Могилев</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="62" type="radio"
+                                name="short_name" value="Мозырь">Мозырь</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Молодечно">Молодечно</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="38" type="radio"
+                                name="short_name" value="Мосты">Мосты</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="61" type="radio"
+                                name="short_name" value="Новая Гута">Новая Гута</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Новополоцк">Новополоцк</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="24" type="radio"
+                                name="short_name" value="Октябрьский">Октябрьский</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Орша">Орша</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="18" type="radio"
+                                name="short_name" value="Осиповичи">Осиповичи</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Островец">Островец</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Ошмяны">Ошмяны</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="55" type="radio"
+                                name="short_name" value="Пинск">Пинск</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Полоцк">Полоцк</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Поставы">Поставы</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="51" type="radio"
+                                name="short_name" value="Пружаны">Пружаны</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="33" type="radio"
+                                name="short_name" value="Речица">Речица</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Рогочев">Рогочев</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="22" type="radio"
+                                name="short_name" value="Светлогорск">Светлогорск</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="43" type="radio"
+                                name="short_name" value="Скидель">Скидель</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Слоним">Слоним</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Слуцк">Слуцк</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Сморгонь">Сморгонь</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Солигорск">Солигорск</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="19" type="radio"
+                                name="short_name" value="Старые дороги">Старые дороги</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" data-city-region-id="29" type="radio"
+                                name="short_name" value="Тереховка">Тереховка</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Толочин">Толочин</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Червень">Червень</label>
+                          </li>
+                          <li class="popup-form-row">
+                            <label class="form-label"><input data-region_id="" type="radio" name="short_name"
+                                value="Я не нашел свой город">Я не нашел свой город</label>
+                          </li>
+                        </ul>
+                        <div class="popup-btn-row">
+                          <button type="submit" class="btn btn_full">Выбрать</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                <ul class="account-field__control">
+                  <li class="account-field__control-item">
+                    <a href="#regions-window" class=" a_js-popup-link js-popup-link" itemscope=""
+                      itemtype="http://schema.org/ImageObject">
+                      <meta itemprop="name" content="map">
+                      <img style="width:16px;" src="../images/map.png"
+                        alt="Товары для кошек | Купить товары для кошек в интернет-магазине" itemprop="contentUrl">
+                      <meta itemprop="description" content="map">
+                      Ваш город
+                    </a>
+                  </li>
+                  <li class="account-field__control-item">
+
+
+                    <a href="http://ezo.voloshin.by/user/login" class="account-field__control-link">Вход</a>
+                  </li>
+                  <li class="account-field__control-item">
+                    <a href="http://ezo.voloshin.by/user/register" class="account-field__control-link">Регистрация</a>
+
+
+
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="top-block__close js-top-block-close"></button>
+      </div>
+
+      <div class="header__content">
+        <div class="wrapper">
+          <div class="header__content-inner">
+            <div class="header__top-block-target">
+              <button class="top-block__target js-top-block-target"></button>
+            </div>
+            <div class="header__logo">
+              <a href="http://ezo.voloshin.by/" class="logo">
+                <img src="http://ezo.voloshin.by/design/e-zooby/images/logo3.png" title="Зоомаркет" alt="Зоомаркет"
+                  class="logo__image">
+              </a>
+              <div class="header__mob-phone">
+                <div class="top-contacts top-contacts_mob-header">
+                  <a href="tel: 7255" class="top-contacts__phone" itemscope="" itemtype="http://schema.org/ImageObject">
+                    <meta itemprop="name" content="phone">
+                    <img height="20" src="http://ezo.voloshin.by/../images/tel-1.png" itemprop="contentUrl" alt="phone">
+                    7255
+                    <meta itemprop="description" content="phone">
+                  </a>
+                  <!--<span class="top-contacts__schedule">10:00–22:00 / Без выходных</span>-->
+                </div>
+              </div>
+            </div>
+            <div class="header__search">
+              <button type="button" class="header__search-btn js-search-field-target-btn">Поиск</button>
+              <div class="search-field js-search-field">
+                <button type="button" class="search-field__close js-search-field-close"></button>
+                <script type="application/ld+json">
+							{
+								"@context" : "https://schema.org",
+								"@type" : "WebSite",
+								"url" : "http://ezo.voloshin.by/",
+								"potentialAction" : {
+									"@type" : "SearchAction",
+									"target" : "http://ezo.voloshin.by/products?keyword={search_term}",
+									"query-input" : "required name=search_term"
+								}
+							}
+
+
+						</script>
+                <form class="search-field__form js-validation-form" action="products" novalidate="novalidate">
+                  <input type="text" class="search-field__input js-search-autocomplete"
+                    placeholder="Введите точное название товара" name="keyword" value="" required="" autocomplete="off"
+                    aria-required="true">
+                  <button type="submit" class="search-field__btn"></button>
+                </form>
+              </div>
+            </div>
+            <div class="header__basket">
+              <div class="basket-field js-basket-field">
+
+                <a href="./cart/" class="basket-field__link">
+                  <i class="basket-field__icon"></i>
+                  <span class="basket-field__count js-basket-count">0</span>
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header__nav js-header-nav">
+        <div class="wrapper">
+          <div class="header__nav-content">
+            <span class="nav-overlay nav-overlay_left js-nav-left"></span>
+            <span class="nav-overlay nav-overlay_right js-nav-right"></span>
+            <nav class="nav js-nav mCustomScrollbar _mCS_1 mCS_no_scrollbar">
+              <div id="mCSB_1" class="mCustomScrollBox mCS-light mCSB_horizontal mCSB_inside" style="max-height: none;"
+                tabindex="0">
+                <div id="mCSB_1_container" class="mCSB_container mCS_x_hidden mCS_no_scrollbar_x"
+                  style="position: relative; top: 0px; left: 0px; width: 796px; min-width: 100%; overflow-x: inherit;"
+                  dir="ltr">
+                  <ul class="nav__list js-nav-list" itemscope="itemscope"
+                    itemtype="http://www.schema.org/SiteNavigationElement">
+                    <li class="nav__item nav__item_mobile">
+                      <a href="#" class="nav__link js-subnav-link" itemprop="url"><span class="nav__link-text"
+                          itemprop="name">Каталог</span></a>
+                    </li>
+                    <li class="nav__item">
+                      <a href="http://ezo.voloshin.by/catalog/sobaki" itemprop="url" class="nav__link"
+                        data-category="766505" data-dropdown="766505"><span itemprop="name">Собаки</span></a>
+                    </li>
+                    <li class="nav__item">
+                      <a href="http://ezo.voloshin.by/catalog/koshki" itemprop="url" class="nav__link"
+                        data-category="766506" data-dropdown="766506"><span itemprop="name">Кошки</span></a>
+                    </li>
+                    <li class="nav__item">
+                      <a href="http://ezo.voloshin.by/catalog/gryzuny" itemprop="url" class="nav__link"
+                        data-category="766507" data-dropdown="766507"><span itemprop="name">Грызуны</span></a>
+                    </li>
+                    <li class="nav__item">
+                      <a href="http://ezo.voloshin.by/catalog/rybki" itemprop="url" class="nav__link"
+                        data-category="766508" data-dropdown="766508"><span itemprop="name">Рыбки</span></a>
+                    </li>
+                    <li class="nav__item">
+                      <a href="http://ezo.voloshin.by/catalog/ptitsy" itemprop="url" class="nav__link"
+                        data-category="766509" data-dropdown="766509"><span itemprop="name">Птицы</span></a>
+                    </li>
+                    <li class="nav__item">
+                      <a href="http://ezo.voloshin.by/catalog/reptilii" itemprop="url" class="nav__link"
+                        data-category="766768" data-dropdown="766768"><span itemprop="name">Рептилии</span></a>
+                    </li>
+                    <li class="nav__item">
+                      <a href="http://ezo.voloshin.by/catalog/zhdem-pitomtsa" itemprop="url" class="nav__link"
+                        data-category="767356" data-dropdown="767356"><span itemprop="name">Ждём питомца</span></a>
+                    </li>
+                  </ul>
+                </div>
+                <div id="mCSB_1_scrollbar_horizontal"
+                  class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_horizontal"
+                  style="display: none;">
+                  <div class="mCSB_draggerContainer">
+                    <div id="mCSB_1_dragger_horizontal" class="mCSB_dragger"
+                      style="position: absolute; min-width: 60px; width: 0px; left: 0px;" oncontextmenu="return false;">
+                      <div class="mCSB_dragger_bar"></div>
+                    </div>
+                    <div class="mCSB_draggerRail"></div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div class="subnav-block js-subnav-block">
+            <div class="subnav-block__header">
+              <div class="subnav-block__title">Каталог</div>
+              <button class="subnav-block__close js-subnav-block-close"></button>
+            </div>
+            <div class="subnav-block__content">
+              <div class="subnav-block__item" data-dropdown="766505">
+                <div class="wrapper">
+                  <div class="subnav-block__item-title">
+                    <a href="http://ezo.voloshin.by/catalog/sobaki" class="subnav-block__item-title-link">Собаки</a>
+                  </div>
+                  <div class="subnav">
+
+
+                    <div class="subnav__col">
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/sobaki-suhie-korma"
+                            class="subnav__nav-title-link">Сухие
+                            корма</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/preservy" class="subnav__nav-title-link">Пресервы</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/sobaki-konservy"
+                            class="subnav__nav-title-link">Консервы</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/sobaki-lakomstva"
+                            class="subnav__nav-title-link">Лакомства</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="subnav__col">
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/sobaki-vitaminy-pisch-dobavki"
+                            class="subnav__nav-title-link">Витамины, пищевые добавки</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/bio-i-fitopreparaty"
+                            class="subnav__nav-title-link">Био и
+                            Фитопрепараты</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/tualety-pelenki"
+                            class="subnav__nav-title-link">Туалеты,
+                            пеленки</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/gigiena" class="subnav__nav-title-link">Гигиена</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="subnav__col">
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/sobaki-gruming-kosmetika"
+                            class="subnav__nav-title-link">Груминг, косметика</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/sobaki-igrushki"
+                            class="subnav__nav-title-link">Игрушки</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/sobaki-transportirovka-perenoski"
+                            class="subnav__nav-title-link">Транспортировка, переноски, будки</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/domiki-lezhaki" class="subnav__nav-title-link">Домики,
+                            лежаки</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="subnav__col">
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/sobaki-miski-kontejnery-avtokormushki"
+                            class="subnav__nav-title-link">Миски, коврики, контейнеры, автокормушки</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/sobaki-oshejniki-povodki-namordniki"
+                            class="subnav__nav-title-link">Ошейники, поводки, акссесуары</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/sobaki-ruletki"
+                            class="subnav__nav-title-link">Рулетки</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/sobaki-odezhda"
+                            class="subnav__nav-title-link">Одежда</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="subnav-block__item" data-dropdown="766506">
+                <div class="wrapper">
+                  <div class="subnav-block__item-title">
+                    <a href="http://ezo.voloshin.by/catalog/koshki" class="subnav-block__item-title-link">Кошки</a>
+                  </div>
+                  <div class="subnav">
+
+
+                    <div class="subnav__col">
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/koshki-suhoj-korm"
+                            class="subnav__nav-title-link">Сухой
+                            корм</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/presyrvy-koty"
+                            class="subnav__nav-title-link">Пресервы</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/koshki-konservy"
+                            class="subnav__nav-title-link">Консервы</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/lakomstva"
+                            class="subnav__nav-title-link">Лакомства</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="subnav__col">
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/koshki-vitaminy-lakomstva"
+                            class="subnav__nav-title-link">Витамины и добавки</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/veterinarnaya-apteka-koty"
+                            class="subnav__nav-title-link">Био и Фитопрепараты</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/koshki-napolniteli"
+                            class="subnav__nav-title-link">Наполнители</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/koshki-tualety-sovochki"
+                            class="subnav__nav-title-link">Туалеты, совки</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="subnav__col">
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/koshki-gigiena"
+                            class="subnav__nav-title-link">Гигиена</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/koshki-gruming-kosmetika"
+                            class="subnav__nav-title-link">Груминг, Косметика</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/koshki-igrushki"
+                            class="subnav__nav-title-link">Игрушки</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/koshki-kogtetochki-domiki"
+                            class="subnav__nav-title-link">Когтеточки</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="subnav__col">
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/koshki-transportirovka-perenoski"
+                            class="subnav__nav-title-link">Переноски</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/domiki-lezhaki-"
+                            class="subnav__nav-title-link">Домики,
+                            лежаки </a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/koshki-miski-kontejnery-avtokormushki"
+                            class="subnav__nav-title-link">Миски, коврики, контейнеры, автокормушки</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/koshki-oshejniki-shlejki"
+                            class="subnav__nav-title-link">Ошейники, шлейки, аксессуары </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="subnav-block__item" data-dropdown="766507">
+                <div class="wrapper">
+                  <div class="subnav-block__item-title">
+                    <a href="http://ezo.voloshin.by/catalog/gryzuny" class="subnav-block__item-title-link">Грызуны</a>
+                  </div>
+                  <div class="subnav">
+
+
+                    <div class="subnav__col">
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/gryzuny-horki-suhoj-korm"
+                            class="subnav__nav-title-link">Сухой корм</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/gryzuny-horki-lakomstva"
+                            class="subnav__nav-title-link">Лакомства и витаминные добавки</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/gryzuny-horki-kletki-perenoski-kormushki"
+                            class="subnav__nav-title-link">Клетки</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="subnav__col">
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/gryzuny-horki-igrushki"
+                            class="subnav__nav-title-link">Игрушки, колеса, шары</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/gryzuny-horki-napolniteli-seno-opilki"
+                            class="subnav__nav-title-link">Наполнители, сено</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/tualety-kupalki"
+                            class="subnav__nav-title-link">Туалеты,
+                            купалки</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="subnav__col">
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/gryzuny-horki-gigiena-kosmetika"
+                            class="subnav__nav-title-link">Груминг</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/miski-poilki-kormushki"
+                            class="subnav__nav-title-link">Миски, поилки, кормушки</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/sredstva-po-uhodu"
+                            class="subnav__nav-title-link">Средства
+                            по уходу</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="subnav__col">
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/domiki-dlya-grizunov"
+                            class="subnav__nav-title-link">Домики для грызунов</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="subnav-block__item" data-dropdown="766508">
+                <div class="wrapper">
+                  <div class="subnav-block__item-title">
+                    <a href="http://ezo.voloshin.by/catalog/rybki" class="subnav-block__item-title-link">Рыбки</a>
+                  </div>
+                  <div class="subnav">
+
+
+                    <div class="subnav__col">
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/rybki-akvariumy"
+                            class="subnav__nav-title-link">Аквариумы</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/rybki-dekoratsiya"
+                            class="subnav__nav-title-link">Декорация</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="subnav__col">
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/aksessuary-i-oborudovanie-dlya-akvariuma"
+                            class="subnav__nav-title-link">Аксессуары и оборудование</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/himiya-dlya-akvariumov"
+                            class="subnav__nav-title-link">Химия</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="subnav__col">
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/korm-i-lakomstva-dlya-ribok"
+                            class="subnav__nav-title-link">Корм и лакомства</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="subnav-block__item" data-dropdown="766509">
+                <div class="wrapper">
+                  <div class="subnav-block__item-title">
+                    <a href="http://ezo.voloshin.by/catalog/ptitsy" class="subnav-block__item-title-link">Птицы</a>
+                  </div>
+                  <div class="subnav">
+
+
+                    <div class="subnav__col">
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/pticy-suhoj-korm" class="subnav__nav-title-link">Сухой
+                            корм</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/pticy-lakomstva"
+                            class="subnav__nav-title-link">Лакомства
+                            и витаминные добавки</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/pticy-kletki"
+                            class="subnav__nav-title-link">Клетки</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="subnav__col">
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/pticy-igrushki"
+                            class="subnav__nav-title-link">Игрушки,
+                            аксессуары для клетки</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/poilki-kormushki"
+                            class="subnav__nav-title-link">Поилки,
+                            кормушки</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/pticy-gigiena"
+                            class="subnav__nav-title-link">Купалки</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="subnav__col">
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/gruming" class="subnav__nav-title-link">Груминг</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/napolniteli-podstilki"
+                            class="subnav__nav-title-link">Наполнители, подстилки</a>
+                        </div>
+                      </div>
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/sredstva-po-uhodu-ptitsy"
+                            class="subnav__nav-title-link">Средства по уходу </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="subnav-block__item" data-dropdown="766768">
+                <div class="wrapper">
+                  <div class="subnav-block__item-title">
+                    <a href="http://ezo.voloshin.by/catalog/reptilii" class="subnav-block__item-title-link">Рептилии</a>
+                  </div>
+                  <div class="subnav">
+
+
+                    <div class="subnav__col">
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/terrariumy"
+                            class="subnav__nav-title-link">Террариумы</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="subnav-block__item" data-dropdown="767356">
+                <div class="wrapper">
+                  <div class="subnav-block__item-title">
+                    <a href="http://ezo.voloshin.by/catalog/zhdem-pitomtsa" class="subnav-block__item-title-link">Ждём
+                      питомца</a>
+                  </div>
+                  <div class="subnav">
+
+
+                    <div class="subnav__col">
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/zhdem-kotenka" class="subnav__nav-title-link">Ждём
+                            котёнка</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="subnav__col">
+                      <div class="subnav__nav">
+                        <div class="subnav__nav-title">
+                          <a href="http://ezo.voloshin.by/catalog/zhdem-schenka" class="subnav__nav-title-link">Ждём
+                            щенка</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </header>
+
+    <section class="section section_bg section_catalog section-add">
+      <div class="wrapper">
+        <div>
+          <div class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList">
+            <div class="breadcrumbs__item" itemprop="itemListElement" itemscope=""
+              itemtype="https://schema.org/ListItem">
+              <a href="http://ezo.voloshin.by/" class="breadcrumbs__link" itemprop="item">
+                <span itemprop="name">Главная</span>
+              </a>
+              <meta itemprop="position" content="1">
+            </div>
+            <div class="breadcrumbs__item">
+              Бонусы </div>
+          </div>
+          <h1 class="page-title"> БОНУСЫ И ПОДАРКИ ОТ EZOO </h1>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia natus, error, ea quibusdam eum officia, sed
+            illum ullam harum magnam ex? Eligendi, id magnam non fugit corporis sapiente minus nemo?</p>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia natus, error, ea quibusdam eum officia, sed
+            illum ullam harum magnam ex? Eligendi, id magnam non fugit corporis sapiente minus nemo?</p>
+        </div>
+        <div class="align-center bonus__btns">
+          <button class="btn btn__bonusAll">Все бонусы</button>
+          <button class="btn btn__bonusPersonal">Мои бонусы</button>
+        </div>
+
+        <div class="bonus__all">
+
+          <ul class="bonus__list">
+            <li class="bonus__item">
+              <a href="#modal__bonus-1" class="bonus__item-img show__modal">
+                <img src="https://profb.shop/upload/iblock/047/0470bf4036ccfeb1431f85d5397576ea.jpg" alt="img-1"
+                  draggable="false" loading="lazy" title="img-1">
+              </a>
+            </li>
+            <li class="bonus__item">
+              <a href="#modal__bonus-2" class="bonus__item-img show__modal">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz_LRBuG8tDgs-vtRnhpXQkqTBYRNe2ncnKFyob8yhqgupYSUNmKnNmYs5uSHMXyLnzoo&usqp=CAU"
+                  alt="img-2" draggable="false" loading="lazy" title="img-2">
+              </a>
+              <a href="#modal__bonus-3" class="bonus__item-img show__modal">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1FcMg0-vc7Hgj_QKvOamSlO66YHUopSr9Dw&usqp=CAU"
+                  alt="img-3" draggable="false" loading="lazy" title="img-3">
+              </a>
+            </li>
+            <li class="bonus__item">
+              <a href="#modal__bonus-4" class="bonus__item-img show__modal">
+                <img src="https://img.megatop.by/2-1618222868KtO3F.jpg" alt="img-4" draggable="false" loading="lazy"
+                  title="img-4">
+              </a>
+            </li>
+            <li class="bonus__item">
+              <a href="#modal__bonus-5" class="bonus__item-img show__modal">
+                <img
+                  src="https://sun9-72.userapi.com/impg/bbi3tywLsec_178fyXfin3loBvbpWAKnZ_cNDA/fs03KYsW_Qg.jpg?size=567x241&quality=96&sign=7486afd3b392ea61fb337cbae1a64eaf&type=album"
+                  alt="img-5" draggable="false" loading="lazy" title="img-5">
+              </a>
+            </li>
+            <li class="bonus__item">
+              <a href="#modal__bonus-6" class="bonus__item-img show__modal">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiy1DWfnjGreL28pj5FOAKHAXUDEE0NSy6ow&usqp=CAU"
+                  alt="img-6" draggable="false" loading="lazy" title="img-6">
+              </a>
+              <a href="#modal__bonus-7" class="bonus__item-img show__modal">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC_w04HMM23mDJgHV2b5kebLhjFE5Xod6z5Q&usqp=CAU"
+                  alt="img-7" draggable="false" loading="lazy" title="img-7">
+              </a>
+            </li>
+            <li class="bonus__item">
+              <a href="#modal__bonus-8" class="bonus__item-img show__modal">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC_w04HMM23mDJgHV2b5kebLhjFE5Xod6z5Q&usqp=CAU"
+                  alt="img-8" draggable="false" loading="lazy" title="img-8">
+              </a>
+            </li>
+
+          </ul>
+        </div>
+        <div class="bonus__personal">
+          <article class="bonus__text">
+            <p>Пожалуйста, авторизуйтесь, чтобы увидеть свои бонусы.</p>
+          </article>
+          <ul class="bonus__list">
+            <li class="bonus__item">
+              <a href="#modal__bonus-1" class="bonus__item-img show__modal">
+                <img src="https://profb.shop/upload/iblock/047/0470bf4036ccfeb1431f85d5397576ea.jpg" alt="img-1"
+                  draggable="false" loading="lazy" title="img-1">
+              </a>
+            </li>
+            <li class="bonus__item">
+              <a href="" class="bonus__item-img show__modal">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz_LRBuG8tDgs-vtRnhpXQkqTBYRNe2ncnKFyob8yhqgupYSUNmKnNmYs5uSHMXyLnzoo&usqp=CAU"
+                  alt="img-2" draggable="false" loading="lazy" title="img-2">
+              </a>
+              <a href="" class="bonus__item-img show__modal">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1FcMg0-vc7Hgj_QKvOamSlO66YHUopSr9Dw&usqp=CAU"
+                  alt="img-3" draggable="false" loading="lazy" title="img-3">
+              </a>
+            </li>
+            <li class="bonus__item">
+              <a href="" class="bonus__item-img show__modal">
+                <img src="https://img.megatop.by/2-1618222868KtO3F.jpg" alt="img-4" draggable="false" loading="lazy"
+                  title="img-4">
+              </a>
+            </li>
+            <li class="bonus__item">
+              <a href="" class="bonus__item-img show__modal">
+                <img
+                  src="https://sun9-72.userapi.com/impg/bbi3tywLsec_178fyXfin3loBvbpWAKnZ_cNDA/fs03KYsW_Qg.jpg?size=567x241&quality=96&sign=7486afd3b392ea61fb337cbae1a64eaf&type=album"
+                  alt="img-5" draggable="false" loading="lazy" title="img-5">
+              </a>
+            </li>
+            <li class="bonus__item">
+              <a href="" class="bonus__item-img show__modal">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiy1DWfnjGreL28pj5FOAKHAXUDEE0NSy6ow&usqp=CAU"
+                  alt="img-6" draggable="false" loading="lazy" title="img-6">
+              </a>
+              <a href="" class="bonus__item-img show__modal">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC_w04HMM23mDJgHV2b5kebLhjFE5Xod6z5Q&usqp=CAU"
+                  alt="img-7" draggable="false" loading="lazy" title="img-7">
+              </a>
+            </li>
+            <li class="bonus__item">
+              <a href="" class="bonus__item-img show__modal">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC_w04HMM23mDJgHV2b5kebLhjFE5Xod6z5Q&usqp=CAU"
+                  alt="img-8" draggable="false" loading="lazy" title="img-8">
+              </a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="modal" id="modal__bonus-1">
+      <div class="modal__body __bonus">
+        <div class="modal__content __bonus">
+          <div class="modal__close close__modal"><span></span><span></span></div>
+          <h3 class="modal__bonus-title">Заголовок бонуса-1</h3>
+          <div class="modal__bonus-img">
+            <img src="https://profb.shop/upload/iblock/047/0470bf4036ccfeb1431f85d5397576ea.jpg" alt="img-1"
+              draggable="false" loading="lazy" title="img-1">
+          </div>
+          <div class="modal__bonus-text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic unde amet totam perferendis, sed, natus
+              laborum voluptate velit fugit porro, mollitia dolores enim labore voluptatum perspiciatis necessitatibus
+              qui dicta expedita!</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi dolorem architecto, at culpa minima
+              nulla, incidunt doloribus eligendi cumque temporibus non nemo ab quod natus. Accusamus nobis eius incidunt
+              mollitia?</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi dolorem architecto, at culpa minima
+              nulla, incidunt doloribus eligendi cumque temporibus non nemo ab quod natus. Accusamus nobis eius incidunt
+              mollitia?</p>
+          </div>
+          <a href="" class=" modal__bonus-btn btn">Поулчить бонус</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="modal" id="modal__bonus-2">
+      <div class="modal__body __bonus">
+        <div class="modal__content __bonus">
+          <div class="modal__close close__modal"><span></span><span></span></div>
+          <h3 class="modal__bonus-title">Заголовок бонуса-2</h3>
+          <div class="modal__bonus-img">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRz_LRBuG8tDgs-vtRnhpXQkqTBYRNe2ncnKFyob8yhqgupYSUNmKnNmYs5uSHMXyLnzoo&usqp=CAU"
+              alt="img-2" draggable="false" loading="lazy" title="img-2">
+          </div>
+          <div class="modal__bonus-text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic unde amet totam perferendis, sed, natus
+              laborum voluptate velit fugit porro, mollitia dolores enim labore voluptatum perspiciatis necessitatibus
+              qui dicta expedita!</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi dolorem architecto, at culpa minima
+              nulla, incidunt doloribus eligendi cumque temporibus non nemo ab quod natus. Accusamus nobis eius incidunt
+              mollitia?</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi dolorem architecto, at culpa minima
+              nulla, incidunt doloribus eligendi cumque temporibus non nemo ab quod natus. Accusamus nobis eius incidunt
+              mollitia?</p>
+          </div>
+          <a href="" class=" modal__bonus-btn btn">Поулчить бонус</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="modal" id="modal__bonus-3">
+      <div class="modal__body __bonus">
+        <div class="modal__content __bonus">
+          <div class="modal__close close__modal"><span></span><span></span></div>
+          <h3 class="modal__bonus-title">Заголовок бонуса-3</h3>
+          <div class="modal__bonus-img">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1FcMg0-vc7Hgj_QKvOamSlO66YHUopSr9Dw&usqp=CAU"
+              alt="img-3" draggable="false" loading="lazy" title="img-3">
+          </div>
+          <div class="modal__bonus-text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic unde amet totam perferendis, sed, natus
+              laborum voluptate velit fugit porro, mollitia dolores enim labore voluptatum perspiciatis necessitatibus
+              qui dicta expedita!</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi dolorem architecto, at culpa minima
+              nulla, incidunt doloribus eligendi cumque temporibus non nemo ab quod natus. Accusamus nobis eius incidunt
+              mollitia?</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi dolorem architecto, at culpa minima
+              nulla, incidunt doloribus eligendi cumque temporibus non nemo ab quod natus. Accusamus nobis eius incidunt
+              mollitia?</p>
+          </div>
+          <a href="" class=" modal__bonus-btn btn">Поулчить бонус</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="modal" id="modal__bonus-4">
+      <div class="modal__body __bonus">
+        <div class="modal__content __bonus">
+          <div class="modal__close close__modal"><span></span><span></span></div>
+          <h3 class="modal__bonus-title">Заголовок бонуса-4</h3>
+          <div class="modal__bonus-img">
+            <img src="https://img.megatop.by/2-1618222868KtO3F.jpg" alt="img-4" draggable="false" loading="lazy"
+              title="img-4">
+          </div>
+          <div class="modal__bonus-text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic unde amet totam perferendis, sed, natus
+              laborum voluptate velit fugit porro, mollitia dolores enim labore voluptatum perspiciatis necessitatibus
+              qui dicta expedita!</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi dolorem architecto, at culpa minima
+              nulla, incidunt doloribus eligendi cumque temporibus non nemo ab quod natus. Accusamus nobis eius incidunt
+              mollitia?</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi dolorem architecto, at culpa minima
+              nulla, incidunt doloribus eligendi cumque temporibus non nemo ab quod natus. Accusamus nobis eius incidunt
+              mollitia?</p>
+          </div>
+          <a href="" class=" modal__bonus-btn btn">Поулчить бонус</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="modal" id="modal__bonus-5">
+      <div class="modal__body __bonus">
+        <div class="modal__content __bonus">
+          <div class="modal__close close__modal"><span></span><span></span></div>
+          <h3 class="modal__bonus-title">Заголовок бонуса-3</h3>
+          <div class="modal__bonus-img">
+            <img
+              src="https://sun9-72.userapi.com/impg/bbi3tywLsec_178fyXfin3loBvbpWAKnZ_cNDA/fs03KYsW_Qg.jpg?size=567x241&quality=96&sign=7486afd3b392ea61fb337cbae1a64eaf&type=album"
+              alt="img-5" draggable="false" loading="lazy" title="img-5">
+          </div>
+          <div class="modal__bonus-text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic unde amet totam perferendis, sed, natus
+              laborum voluptate velit fugit porro, mollitia dolores enim labore voluptatum perspiciatis necessitatibus
+              qui dicta expedita!</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi dolorem architecto, at culpa minima
+              nulla, incidunt doloribus eligendi cumque temporibus non nemo ab quod natus. Accusamus nobis eius incidunt
+              mollitia?</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi dolorem architecto, at culpa minima
+              nulla, incidunt doloribus eligendi cumque temporibus non nemo ab quod natus. Accusamus nobis eius incidunt
+              mollitia?</p>
+          </div>
+          <a href="" class=" modal__bonus-btn btn">Поулчить бонус</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="modal" id="modal__bonus-6">
+      <div class="modal__body __bonus">
+        <div class="modal__content __bonus">
+          <div class="modal__close close__modal"><span></span><span></span></div>
+          <h3 class="modal__bonus-title">Заголовок бонуса-3</h3>
+          <div class="modal__bonus-img">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiy1DWfnjGreL28pj5FOAKHAXUDEE0NSy6ow&usqp=CAU"
+              alt="img-6" draggable="false" loading="lazy" title="img-6">
+          </div>
+          <div class="modal__bonus-text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic unde amet totam perferendis, sed, natus
+              laborum voluptate velit fugit porro, mollitia dolores enim labore voluptatum perspiciatis necessitatibus
+              qui dicta expedita!</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi dolorem architecto, at culpa minima
+              nulla, incidunt doloribus eligendi cumque temporibus non nemo ab quod natus. Accusamus nobis eius incidunt
+              mollitia?</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi dolorem architecto, at culpa minima
+              nulla, incidunt doloribus eligendi cumque temporibus non nemo ab quod natus. Accusamus nobis eius incidunt
+              mollitia?</p>
+          </div>
+          <a href="" class=" modal__bonus-btn btn">Поулчить бонус</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="modal" id="modal__bonus-7">
+      <div class="modal__body __bonus">
+        <div class="modal__content __bonus">
+          <div class="modal__close close__modal"><span></span><span></span></div>
+          <h3 class="modal__bonus-title">Заголовок бонуса-3</h3>
+          <div class="modal__bonus-img">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC_w04HMM23mDJgHV2b5kebLhjFE5Xod6z5Q&usqp=CAU"
+              alt="img-7" draggable="false" loading="lazy" title="img-7">
+          </div>
+          <div class="modal__bonus-text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic unde amet totam perferendis, sed, natus
+              laborum voluptate velit fugit porro, mollitia dolores enim labore voluptatum perspiciatis necessitatibus
+              qui dicta expedita!</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi dolorem architecto, at culpa minima
+              nulla, incidunt doloribus eligendi cumque temporibus non nemo ab quod natus. Accusamus nobis eius incidunt
+              mollitia?</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi dolorem architecto, at culpa minima
+              nulla, incidunt doloribus eligendi cumque temporibus non nemo ab quod natus. Accusamus nobis eius incidunt
+              mollitia?</p>
+          </div>
+          <a href="" class=" modal__bonus-btn btn">Поулчить бонус</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="modal" id="modal__bonus-8">
+      <div class="modal__body __bonus">
+        <div class="modal__content __bonus">
+          <div class="modal__close close__modal"><span></span><span></span></div>
+          <h3 class="modal__bonus-title">Заголовок бонуса-3</h3>
+          <div class="modal__bonus-img">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC_w04HMM23mDJgHV2b5kebLhjFE5Xod6z5Q&usqp=CAU"
+              alt="img-8" draggable="false" loading="lazy" title="img-8">
+          </div>
+          <div class="modal__bonus-text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic unde amet totam perferendis, sed, natus
+              laborum voluptate velit fugit porro, mollitia dolores enim labore voluptatum perspiciatis necessitatibus
+              qui dicta expedita!</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi dolorem architecto, at culpa minima
+              nulla, incidunt doloribus eligendi cumque temporibus non nemo ab quod natus. Accusamus nobis eius incidunt
+              mollitia?</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi dolorem architecto, at culpa minima
+              nulla, incidunt doloribus eligendi cumque temporibus non nemo ab quod natus. Accusamus nobis eius incidunt
+              mollitia?</p>
+          </div>
+          <a href="" class=" modal__bonus-btn btn">Поулчить бонус</a>
+        </div>
+
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="wrapper">
+        <div class="footer__content">
+          <div class="footer__col footer__col_1">
+            <ul class="footer-nav">
+              <li class="footer-nav__item">
+                <a data-page="1" href="http://ezo.voloshin.by/" class="footer-nav__link">Главная</a>
+              </li>
+              <li class="footer-nav__item">
+                <a data-page="3" href="http://ezo.voloshin.by/dostavka" class="footer-nav__link">Доставка</a>
+              </li>
+              <li class="footer-nav__item">
+                <a data-page="2" href="http://ezo.voloshin.by/oplata" class="footer-nav__link">Оплата</a>
+              </li>
+              <li class="footer-nav__item">
+                <a data-page="6" href="http://ezo.voloshin.by/contact" class="footer-nav__link">Контакты</a>
+              </li>
+              <li class="footer-nav__item">
+                <a data-page="11" href="http://ezo.voloshin.by/nashi-magaziny" class="footer-nav__link">Наши
+                  магазины</a>
+              </li>
+              <li class="footer-nav__item">
+                <a data-page="12" href="http://ezo.voloshin.by/korma-dlya-zhivotnyh" class="footer-nav__link">Корма для
+                  животных</a>
+              </li>
+              <li class="footer-nav__item">
+                <a data-page="21" href="http://ezo.voloshin.by/bonusnaya-programma" class="footer-nav__link">Бонусы</a>
+              </li>
+              <li class="footer-nav__item">
+                <a data-page="33" href="http://ezo.voloshin.by/vtoroj-shans" class="footer-nav__link">Второй шанс</a>
+              </li>
+              <li class="footer-nav__item"><a href="/brands" class="footer-nav__link">Бренды</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__col footer__col_2">
+            <a href="tel: 7255"> 7255 Звоните!</a><br>
+            Пн-Вс:&nbsp;09:00-&nbsp;21:00
+            <div class="social contacts__social">
+              <a href="https://vk.com/ezooby" class="social__link social__link_vk"></a>
+              <a href="https://m.facebook.com/e-zooby-Интернет-зоомагазин-709671376046323/"
+                class="social__link social__link_fb"></a>
+              <a href="https://www.instagram.com/ezoo.by/" class="social__link social__link_tw"></a>
+              <a href="https://ok.ru/group/59858431377442" class="social__link social__link_ok"></a>
+              <a href="https://play.google.com/store/apps/details?id=by.ezoo.android"
+                class="social__link social__link_pm"></a>
+            </div>
+          </div>
+
+          <div class="footer__col footer__col_2">
+
+            Частное предприятие «ЗООХАУЗ»<br>
+            УНП 190942323
+            <br>г. Минск, ул. Бирюзова, д.4/5, офис 2024
+            <br>Дата регистрации в Торговом реестре РБ: 13.04.2018
+            <br><a href="https://e-zoo.by/dogovor-publichnoj-oferty" class="link">
+              Договор публичной оферты
+            </a>
+            <input type="hidden" id="test" value="region_short_name : and cities:  and dadata_city: ">
+          </div>
+
+          <div class="footer__col footer__col_4">
+            <div class="social">
+              <img src="http://ezo.voloshin.by/design/e-zooby/images/logo1-1.png" alt="logo">
+              <img src="http://ezo.voloshin.by/design/e-zooby/images/logo-2.png" alt="logo">
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <script src="../js/lib/jquery/jquery-1.11.1.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.fancybox.min.js" type="text/javascript"></script>
+    <script src="../js/jquery.formstyler.min.js" type="text/javascript"></script>
+    <script src="../js/lib/jquery.mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"
+      type="text/javascript"></script>
+    <script src="../js/lib/jquery.inputmask/jquery.inputmask.bundle.js" type="text/javascript"></script>
+    <script src="../js/lib/jquery.placeholder/jquery.placeholder.min.js" type="text/javascript"></script>
+    <script src="../js/lib/jquery.slick/slick.min.js" type="text/javascript"></script>
+    <script src="../js/lib/jquery.sticky-kit/jquery.sticky-kit.min.js" type="text/javascript"></script>
+    <script src="../js/lib/jquery.validate/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="../js/lib/jquery-ui-1.11.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="../js/lib/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js" type="text/javascript"></script>
+    <script src="../js/lib/jquery.carouselTicker/jquery.carouselTicker.min.js" type="text/javascript"></script>
+    <script src="../js/lib/jquery.autocomplete/jquery.autocomplete.min.js" type="text/javascript"></script>
+    <script src="../js/lib/air-datepicker/datepicker.min.js" type="text/javascript"></script>
+    <script src="../js/filter.js" type="text/javascript"></script>
+    <script src="../js/scripts.js" type="text/javascript"></script>
+    <style>
+      .btn_border.js-sidebar-filter-tooltip br {
+        content: "";
+      }
+
+      @media only screen and (max-width: 767px) {
+        .filter-check-list {
+          display: block;
+          width: auto;
+          padding: 0;
+          border-radius: 0;
+          background: none;
+          max-height: 100%;
+          overflow: initial;
+        }
+
+        .sidebar-filter [type=submit],
+        .submit-link {
+          display: none;
+        }
+      }
+
+      .hits__main-item .cart.is-open .cart__imgae-slider-field {
+        display: none;
+      }
+
+      span.im-caret {
+        -webkit-animation: 1s blink step-end infinite;
+        animation: 1s blink step-end infinite;
+      }
+
+      @keyframes blink {
+
+        from,
+        to {
+          border-right-color: black;
+        }
+
+        50% {
+          border-right-color: transparent;
+        }
+      }
+
+      @-webkit-keyframes blink {
+
+        from,
+        to {
+          border-right-color: black;
+        }
+
+        50% {
+          border-right-color: transparent;
+        }
+      }
+
+      span.im-static {
+        color: grey;
+      }
+
+      div.im-colormask {
+        display: inline-block;
+        border-style: inset;
+        border-width: 2px;
+        -webkit-appearance: textfield;
+        -moz-appearance: textfield;
+        appearance: textfield;
+      }
+
+      div.im-colormask>input {
+        position: absolute;
+        display: inline-block;
+        background-color: transparent;
+        color: transparent;
+        -webkit-appearance: caret;
+        -moz-appearance: caret;
+        appearance: caret;
+        border-style: none;
+        left: 0;
+        /*calculated*/
+      }
+
+      div.im-colormask>input:focus {
+        outline: none;
+      }
+
+      div.im-colormask>input::-moz-selection {
+        background: none;
+      }
+
+      div.im-colormask>input::selection {
+        background: none;
+      }
+
+      div.im-colormask>input::-moz-selection {
+        background: none;
+      }
+
+      div.im-colormask>div {
+        color: black;
+        display: inline-block;
+        width: 100px;
+        /*calculated*/
+      }
+    </style>
+    <style type="text/css">
+      .multi-grid {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin: -55px 0 0 -60px;
+        max-width: none
+      }
+
+      .multi-cell {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        margin: initial;
+        padding: 55px 0 0 60px;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        overflow: hidden
+      }
+
+      .multi-cell.multi-lists {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        position: relative;
+        padding: 70px 0 85px 60px
+      }
+
+      .multi-cell.multi-sidebar {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 320px;
+        flex: 0 0 320px;
+        padding-top: 60px;
+        padding-bottom: 85px
+      }
+
+      .multi-icon {
+        fill: #adb9c5;
+        opacity: .5;
+        position: absolute;
+        display: inline-block;
+        cursor: pointer
+      }
+
+      .multi-searchIcon {
+        top: 24px;
+        left: 3.2%;
+        width: 50px;
+        height: 50px
+      }
+
+      .multi-closeIcon {
+        top: 25px;
+        right: 3%;
+        width: 43px;
+        height: 43px;
+        opacity: .9;
+        fill: #000
+      }
+
+      .multi-checkIcon {
+        top: 3px;
+        right: 3%;
+        margin-right: 32px;
+        width: 85px;
+        height: 85px;
+        opacity: .9;
+        fill: #7bae35;
+        display: none
+      }
+
+      .multi-checkIcon.multi-active {
+        display: inline-block
+      }
+
+      .multi-arrow-leftIcon,
+      .multi-arrow-rightIcon {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        opacity: 1;
+        cursor: inherit
+      }
+
+      .multi-arrow-leftIcon {
+        width: 37px;
+        height: 37px
+      }
+
+      .multi-noimageIcon {
+        width: 60px;
+        height: 60px;
+        fill: #e9e9e9;
+        opacity: .9
+      }
+
+      .multi-chevron-downIcon,
+      .multi-chevron-upIcon {
+        position: relative;
+        height: 22px;
+        width: 22px;
+        fill: rgba(100, 119, 136, .8);
+        opacity: 1
+      }
+
+      .multi-svg {
+        fill: inherit !important;
+        width: inherit;
+        height: inherit
+      }
+
+      .multi-svg-path {
+        fill: inherit
+      }
+
+      .multi-fontSmoothing {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale
+      }
+
+      .multi-small {
+        line-height: 19px
+      }
+
+      .multi-small .multi-taxon {
+        font-size: 15px;
+        line-height: 20px
+      }
+
+      .multi-small .multi-item {
+        font-size: 14px
+      }
+
+      @media (max-width:685px) {
+        .multi-small {
+          line-height: 20px
+        }
+
+        .multi-small .multi-taxon {
+          font-size: 16px;
+          line-height: 21px
+        }
+
+        .multi-small .multi-item {
+          font-size: 15px
+        }
+      }
+
+      .multi-mini {
+        font-size: 14px;
+        line-height: 19px
+      }
+
+      .multi-mini .multi-hint {
+        font-size: 13px
+      }
+
+      .multi-mini a.multi-lastQuery {
+        font-size: 15px
+      }
+
+      .multi-mini .multi-input[type=text],
+      .multi-mini .multi-input[type=text]:focus,
+      .multi-mini .multi-input[type=text]:hover {
+        font-size: 38px
+      }
+
+      .multi-mini .multi-taxon {
+        font-size: 14px;
+        line-height: 21px
+      }
+
+      .multi-mini .multi-badge {
+        font-size: 12px
+      }
+
+      .multi-mini .multi-title {
+        font-size: 24px
+      }
+
+      .multi-mini .multi-item {
+        font-size: 13px
+      }
+
+      @media (max-width:685px) {
+
+        .multi-mini .multi-input[type=text],
+        .multi-mini .multi-input[type=text]:focus,
+        .multi-mini .multi-input[type=text]:hover {
+          font-size: 22px
+        }
+
+        .multi-mini .multi-title {
+          font-size: 26px;
+          line-height: 31px
+        }
+
+        .multi-mini .multi-content {
+          font-size: 13px;
+          line-height: 20px
+        }
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-10419.multi-theme-compact .multi-wrapper {
+          margin-top: 85px
+        }
+      }
+
+      .multi-theme-10462 .multi-titleIcon {
+        height: 23px
+      }
+
+      .multi-theme-10462 .multi-title .multi-arrow-rightIcon {
+        width: 31px;
+        height: 31px;
+        fill: #36c;
+        margin-left: -1px
+      }
+
+      .multi-theme-10462 .multi-title:hover .multi-arrow-rightIcon {
+        fill: #ff5a00
+      }
+
+      .multi-theme-10462 a.multi-more {
+        color: #36c
+      }
+
+      .multi-theme-10462 a.multi-more:hover {
+        color: #ff5a00
+      }
+
+      .multi-theme-10462 .multi-snippet {
+        font-size: 12px
+      }
+
+      .multi-theme-10462 .multi-label {
+        margin: -2px
+      }
+
+      .multi-theme-10462 a.multi-powered {
+        font-size: 15px
+      }
+
+      .multi-theme-10462 .multi-poweredHint {
+        font-size: 13px
+      }
+
+      .multi-theme-10462 .multi-logo {
+        width: 19px;
+        margin: 0 3px -1px
+      }
+
+      .multi-theme-10424.multi-theme-compact .multi-wrapper {
+        margin-top: 73px
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-10424.multi-theme-compact .multi-wrapper {
+          margin-top: 17px
+        }
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-10525.multi-theme-compact .multi-wrapper {
+          margin-top: 40px
+        }
+      }
+
+      @media (min-width:685px) {
+        .multi-theme-10502.multi-theme-compact .multi-wrapper {
+          margin-top: 126px
+        }
+
+        .multi-theme-10506.multi-theme-compact .multi-wrapper {
+          margin-top: 138px
+        }
+      }
+
+      .multi-theme-10502.multi-theme-compact .multi-icon,
+      .multi-theme-10503.multi-theme-compact .multi-icon,
+      .multi-theme-10506.multi-theme-compact .multi-icon {
+        opacity: 1
+      }
+
+      .multi-theme-10502.multi-theme-compact .multi-layout,
+      .multi-theme-10503.multi-theme-compact .multi-layout,
+      .multi-theme-10506.multi-theme-compact .multi-layout {
+        -webkit-box-shadow: 0 1px 15px rgba(62, 57, 107, .6);
+        box-shadow: 0 1px 15px rgba(62, 57, 107, .6)
+      }
+
+      .multi-theme-10433 .multi-presence {
+        color: #d80909
+      }
+
+      @media (min-width:1200px) {
+        .multi-theme-10447.multi-theme-compact .multi-wrapper {
+          max-width: 1230px;
+          margin: 145px auto 2%;
+          padding-left: 306px
+        }
+
+        .multi-theme-10447.multi-theme-compact .multi-cell {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 50%;
+          flex: 0 0 50%
+        }
+
+        .multi-theme-10447.multi-theme-compact .multi-cell.multi-lists {
+          -webkit-box-flex: 1;
+          -ms-flex: 1;
+          flex: 1
+        }
+
+        .multi-theme-10447.multi-theme-compact .multi-cell.multi-sidebar {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 290px;
+          flex: 0 0 290px
+        }
+      }
+
+      .multi-theme-10461 .multi-snippet {
+        font-size: 12px;
+        line-height: 16px
+      }
+
+      .multi-theme-10461 .multi-price {
+        color: #000
+      }
+
+      .multi-theme-10494 .multi-thumbnail {
+        -ms-flex-item-align: start;
+        align-self: flex-start
+      }
+
+      .multi-theme-10457 .multi-titleIcon {
+        height: 30px
+      }
+
+      .multi-theme-10457 .multi-title .multi-arrow-rightIcon {
+        width: 45px;
+        height: 45px;
+        fill: #f15643;
+        margin-left: -6px
+      }
+
+      .multi-theme-10457 .multi-title:hover .multi-arrow-rightIcon {
+        fill: orange
+      }
+
+      .multi-theme-10457 .multi-price {
+        font-weight: 700;
+        color: rgba(0, 0, 0, .9);
+        margin-right: 6px
+      }
+
+      .multi-theme-10457 .multi-presence {
+        color: #d80909
+      }
+
+      .multi-theme-10453.multi-search .multi-input[type=text],
+      .multi-theme-10453.multi-search .multi-input[type=text]:focus,
+      .multi-theme-10453.multi-search .multi-input[type=text]:hover,
+      .multi-theme-10453.multi-search .multi-title,
+      .multi-theme-10453.multi-search a {
+        color: #43545b
+      }
+
+      .multi-theme-10453.multi-search a:hover {
+        color: #ea2e49
+      }
+
+      .multi-theme-10453.multi-search .multi-taxon {
+        font-size: 24px;
+        font-weight: 300 !important
+      }
+
+      .multi-theme-10453.multi-search .multi-badge {
+        font-size: 24px;
+        line-height: 32px;
+        border-radius: 2px;
+        border: 1px solid #fff
+      }
+
+      .multi-theme-10453.multi-search .multi-title {
+        font-size: 26px;
+        font-weight: 400
+      }
+
+      .multi-theme-10453.multi-search .multi-thumbnail {
+        border: 0
+      }
+
+      .multi-theme-10453.multi-search .multi-content {
+        font-size: 20px;
+        line-height: 1.2;
+        font-weight: 300
+      }
+
+      .multi-theme-10453.multi-search .multi-snippet {
+        font-weight: 500
+      }
+
+      .multi-theme-10453.multi-search a.multi-more {
+        font-size: 20px;
+        color: #0091db;
+        font-weight: 400
+      }
+
+      .multi-theme-10453.multi-search a.multi-more:hover {
+        color: #ea2e49
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-10453.multi-search .multi-input[type=text] {
+          font-size: 26px
+        }
+
+        .multi-theme-10453.multi-search .multi-badge,
+        .multi-theme-10453.multi-search .multi-taxon {
+          font-size: 20px
+        }
+
+        .multi-theme-10453.multi-search .multi-title {
+          font-size: 22px;
+          padding-bottom: 3px
+        }
+      }
+
+      .multisearch.id10453 {
+        overflow-y: unset
+      }
+
+      .multi-theme-10509 .multi-withLabel,
+      .multi-theme-11624 .multi-withLabel,
+      .multi-theme-11625 .multi-withLabel,
+      .multi-theme-11626 .multi-withLabel,
+      .multi-theme-11627 .multi-withLabel {
+        margin-top: 27px
+      }
+
+      .multi-theme-10483 .multi-withLabel {
+        margin-top: 22px
+      }
+
+      .multi-theme-10462 .multi-withLabel {
+        margin-top: 20px
+      }
+
+      .multi-theme-10512 {
+        opacity: .95
+      }
+
+      .multi-theme-11250 .multi-withLabel {
+        margin-top: 27px
+      }
+
+      .multi-theme-10519 .multi-title .multi-arrow-rightIcon,
+      .multi-theme-10520 .multi-title .multi-arrow-rightIcon,
+      .multi-theme-10521 .multi-title .multi-arrow-rightIcon,
+      .multi-theme-10522 .multi-title .multi-arrow-rightIcon {
+        position: static;
+        margin-left: 0
+      }
+
+      .multi-theme-10519 a.multi-taxon,
+      .multi-theme-10519 a.multi-taxon:active,
+      .multi-theme-10519 a.multi-taxon:hover,
+      .multi-theme-10520 a.multi-taxon,
+      .multi-theme-10520 a.multi-taxon:active,
+      .multi-theme-10520 a.multi-taxon:hover,
+      .multi-theme-10521 a.multi-taxon,
+      .multi-theme-10521 a.multi-taxon:active,
+      .multi-theme-10521 a.multi-taxon:hover,
+      .multi-theme-10522 a.multi-taxon,
+      .multi-theme-10522 a.multi-taxon:active,
+      .multi-theme-10522 a.multi-taxon:hover {
+        font-weight: 600 !important
+      }
+
+      .multi-theme-10519 .multi-small,
+      .multi-theme-10520 .multi-small,
+      .multi-theme-10521 .multi-small,
+      .multi-theme-10522 .multi-small {
+        line-height: 18px
+      }
+
+      .multi-theme-10519 .multi-badge,
+      .multi-theme-10520 .multi-badge,
+      .multi-theme-10521 .multi-badge,
+      .multi-theme-10522 .multi-badge {
+        line-height: 23px;
+        min-width: 28px;
+        padding: 0 5px
+      }
+
+      .multi-theme-10519 .multi-price,
+      .multi-theme-10520 .multi-price,
+      .multi-theme-10521 .multi-price,
+      .multi-theme-10522 .multi-price {
+        color: #000;
+        font-weight: 600
+      }
+
+      .multi-theme-10519 .multi-thumbnail,
+      .multi-theme-10520 .multi-thumbnail,
+      .multi-theme-10521 .multi-thumbnail,
+      .multi-theme-10522 .multi-thumbnail {
+        border: 0;
+        width: auto
+      }
+
+      .notransition body {
+        -webkit-transition: none;
+        transition: none
+      }
+
+      .multi-theme-10526 .multi-content {
+        line-height: 19px
+      }
+
+      .multi-theme-10526 .multi-snippet {
+        font-size: 13px;
+        line-height: 18px
+      }
+
+      .multi-theme-10526 .multi-thumbnail,
+      .multi-theme-10526 a.multi-item {
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+        align-items: start
+      }
+
+      .multi-theme-10526 .multi-thumbnail {
+        margin-top: 4px
+      }
+
+      .multi-theme-10526 .multi-thumbnail.multi-withLabel {
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center
+      }
+
+      .multi-theme-10526 .multi-date {
+        margin-top: 3px;
+        font-size: 12px
+      }
+
+      .multi-theme-10526 a.multi-item {
+        margin-top: 5px
+      }
+
+      .multi-theme-10526 .multi-title,
+      .multi-theme-10526 a.multi-title {
+        margin-bottom: 15px
+      }
+
+      .multi-theme-10526 a.multi-more {
+        margin-top: -5px;
+        color: rgba(0, 0, 0, .9)
+      }
+
+      .multisearch.id10528 {
+        overflow-y: unset
+      }
+
+      .multisearch.id10474,
+      .multisearch.id10474 body,
+      .multisearch.id10781,
+      .multisearch.id10781 body {
+        height: unset !important
+      }
+
+      .multi-theme-10474.multi-theme-compact .multi-wrapper {
+        max-width: none
+      }
+
+      @media (min-width:685px) {
+
+        .multi-theme-10474.multi-theme-compact .multi-input,
+        .multi-theme-10474.multi-theme-compact .multi-input[type=text]:focus,
+        .multi-theme-10474.multi-theme-compact .multi-input[type=text]:hover {
+          height: 74px;
+          padding-bottom: 16px
+        }
+      }
+
+      .multi-theme-10474.multi-theme-compact .multi-layout {
+        margin: 0
+      }
+
+      .multi-theme-10474.multi-theme-compact .multi-searchIcon {
+        top: 10px
+      }
+
+      .multi-theme-10474.multi-theme-compact .multi-closeIcon {
+        top: 13px
+      }
+
+      .multi-theme-10474.multi-theme-compact .multi-poweredHint {
+        margin-right: 3px
+      }
+
+      .multi-theme-10535.multi-theme-compact .multi-wrapper {
+        max-width: none
+      }
+
+      .multi-theme-10535.multi-theme-compact .multi-input,
+      .multi-theme-10535.multi-theme-compact .multi-input[type=text]:focus,
+      .multi-theme-10535.multi-theme-compact .multi-input[type=text]:hover {
+        height: 70px
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-10535.multi-theme-compact .multi-wrapper {
+          margin-top: 80px
+        }
+
+        .multi-theme-10535.multi-theme-compact .multi-input,
+        .multi-theme-10535.multi-theme-compact .multi-input[type=text]:focus,
+        .multi-theme-10535.multi-theme-compact .multi-input[type=text]:hover {
+          height: 60px
+        }
+      }
+
+      .multi-theme-10535.multi-theme-compact .multi-layout {
+        margin: 0
+      }
+
+      .multi-theme-10535.multi-theme-compact .multi-searchIcon {
+        top: 10px
+      }
+
+      .multi-theme-10535.multi-theme-compact .multi-closeIcon {
+        top: 13px
+      }
+
+      .multi-theme-10565.multi-theme-compact .multi-mini .multi-taxon,
+      .multi-theme-10565.multi-theme-compact .multi-snippet {
+        font-size: 15px
+      }
+
+      .multi-theme-10565.multi-theme-compact .multi-price {
+        color: #31bcfe;
+        font-weight: 500
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-10565.multi-theme-compact .multi-wrapper {
+          margin-top: 58px
+        }
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-10546.multi-theme-compact .multi-wrapper {
+          margin-top: 60px
+        }
+      }
+
+      .multi-theme-10552.multi-search {
+        overflow-y: auto
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-10552.multi-search .multi-wrapper {
+          margin-right: -6px
+        }
+      }
+
+      @media (max-width:685px) {
+        ::-webkit-scrollbar-thumb {
+          background-color: #bcbcbc
+        }
+
+        .id10716 body {
+          -webkit-user-select: auto
+        }
+      }
+
+      .multi-theme-10564.multi-theme-compact .multi-wrapper {
+        max-width: 1032px
+      }
+
+      @media (min-width:880px) {
+        .multi-theme-10564.multi-theme-compact .multi-lists .multi-grid .multi-cell {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 50%;
+          flex: 0 0 50%
+        }
+      }
+
+      @media (min-width:685px) {
+        .multi-theme-10564.multi-theme-compact .multi-wrapper {
+          z-index: 3147483647 !important
+        }
+      }
+
+      .multi-theme-10563.multi-theme-compact .multi-parameters-box {
+        color: #3a3c42;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 11px;
+        margin-top: 5px
+      }
+
+      .multi-theme-10563.multi-theme-compact .multi-parameters-box .multi-parameter:first-child {
+        padding-left: 0
+      }
+
+      .multi-theme-10563.multi-theme-compact .multi-parameters-box .multi-parameter {
+        display: table-cell;
+        width: auto;
+        line-height: 22px;
+        padding-left: 6px
+      }
+
+      .multi-theme-10563.multi-theme-compact .multi-parameters-box .multi-parameter span {
+        position: relative;
+        top: -2px;
+        padding-left: 20px
+      }
+
+      .multi-theme-10563.multi-theme-compact .multi-parameters-box .multi-parameter .multi-icon {
+        float: left;
+        margin-right: 2px;
+        margin-top: 1px;
+        display: inline-block;
+        background: url(https://www.igroved.ru/i/sprite.png) 100% 100% no-repeat;
+        margin: 0;
+        padding: 0;
+        font-size: 0;
+        color: transparent;
+        text-indent: -99999px
+      }
+
+      .multi-theme-10563.multi-theme-compact .multi-parameters-box .multi-parameter .multi-icon.multi-age {
+        width: 16px;
+        height: 16px;
+        background-position: 0 0;
+        opacity: .8
+      }
+
+      .multi-theme-10563.multi-theme-compact .multi-parameters-box .multi-parameter .multi-icon.multi-player {
+        width: 16px;
+        height: 15px;
+        background-position: -18px 0;
+        opacity: .8
+      }
+
+      .multi-theme-10563.multi-theme-compact .multi-parameters-box .multi-parameter .multi-icon.multi-clock {
+        width: 16px;
+        height: 16px;
+        background-position: -36px 0;
+        opacity: .8
+      }
+
+      .multi-theme-10567.multi-theme-compact {
+        overflow-y: auto
+      }
+
+      .multisearch.id10567 body {
+        padding-right: 0
+      }
+
+      .multi-theme-10577.multi-theme-compact .multi-image {
+        width: auto
+      }
+
+      .multi-theme-10503.multi-theme-compact .multi-wrapper {
+        max-width: 1270px
+      }
+
+      .multi-theme-10503.multi-theme-compact .multi-layout {
+        margin-left: 2.8%;
+        margin-right: 1.9%
+      }
+
+      .multi-theme-10503.multi-theme-compact .multi-layout.multi-withResults {
+        margin-left: 2.2%;
+        margin-right: 2.5%
+      }
+
+      .multi-theme-10503.multi-theme-compact .multi-price {
+        font-size: 16px
+      }
+
+      @media (min-width:685px) {
+        .multi-theme-10503.multi-theme-compact .multi-wrapper {
+          margin-top: 98px
+        }
+      }
+
+      .multi-theme-10580.multi-theme-compact .multi-form {
+        width: auto
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-10436.multi-theme-compact .multi-wrapper {
+          margin-top: 82px
+        }
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-10598.multi-theme-compact .multi-wrapper {
+          margin-top: 290px
+        }
+      }
+
+      .multi-theme-10633.multi-theme-compact .multi-wrapper {
+        margin-top: 124px !important
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-10633.multi-theme-compact .multi-wrapper {
+          margin-top: 137px !important
+        }
+      }
+
+      .multi-theme-10646.multi-theme-compact a.multi-item,
+      .multi-theme-10646.multi-theme-compact a.multi-item:hover,
+      .multi-theme-10646.multi-theme-compact a.multi-taxon,
+      .multi-theme-10646.multi-theme-compact a.multi-taxon:hover {
+        background-color: unset !important
+      }
+
+      .multi-theme-10714.multi-theme-compact a.multi-item,
+      .multi-theme-10714.multi-theme-compact a.multi-item:hover {
+        line-height: 19px
+      }
+
+      .multi-theme-10704 .multi-withLabel {
+        margin-top: 27px
+      }
+
+      .multi-theme-10737.multi-theme-compact a span {
+        border-bottom: none
+      }
+
+      .multi-theme-10737.multi-theme-compact .multi-presence,
+      .multi-theme-10737.multi-theme-compact .multi-snippet {
+        color: rgba(0, 0, 0, .55) !important
+      }
+
+      .multi-theme-10737.multi-theme-compact span {
+        color: initial
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-10711.multi-theme-compact {
+          background-color: rgba(1, 1, 1, .2)
+        }
+      }
+
+      .multi-theme-10642.multi-theme-compact {
+        background-color: rgba(1, 1, 1, .2)
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-10783.multi-theme-compact .multi-wrapper {
+          margin-top: 60px
+        }
+      }
+
+      .multi-theme-10645 .multi-content {
+        overflow: visible
+      }
+
+      .multi-theme-10781.multi-theme-compact {
+        overflow-y: auto;
+        z-index: 910 !important
+      }
+
+      .multi-theme-10781.multi-theme-compact .multi-noimageIcon {
+        cursor: auto
+      }
+
+      .multi-theme-10781.multi-theme-compact .multi-snippet-btn a {
+        color: #15b742
+      }
+
+      @media (min-width:1201px) {
+        .multi-theme-10781.multi-theme-compact .multi-wrapper {
+          width: 1161px !important
+        }
+      }
+
+      @media (min-width:768px) and (max-width:1200px) {
+        .multi-theme-10781.multi-theme-compact .multi-layout {
+          margin: 0 3.7% !important
+        }
+      }
+
+      .multi-theme-10823.multi-theme-compact .multi-taxon:hover .multi-badge {
+        background: var(--hover-color) !important
+      }
+
+      .multi-theme-10823.multi-theme-compact .multi-taxon.multi-active .multi-badge {
+        background: var(--color) !important
+      }
+
+      .multi-theme-10780.multi-theme-compact .multi-price {
+        color: rgba(0, 0, 0, .9);
+        font-weight: 600
+      }
+
+      .multi-theme-10780.multi-theme-compact .multi-input[type=text],
+      .multi-theme-10780.multi-theme-compact .multi-input[type=text]:focus,
+      .multi-theme-10780.multi-theme-compact .multi-input[type=text]:hover {
+        all: initial;
+        font-size: 34px;
+        font-weight: 400;
+        font-style: normal;
+        position: relative;
+        background: none;
+        border: 0;
+        color: #000;
+        height: 90px;
+        line-height: 40px;
+        margin: 0;
+        padding: 6px 55px 9px 64px;
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        font-family: inherit
+      }
+
+      @media (max-width:685px) {
+
+        .multi-theme-10780.multi-theme-compact .multi-input[type=text],
+        .multi-theme-10780.multi-theme-compact .multi-input[type=text]:focus,
+        .multi-theme-10780.multi-theme-compact .multi-input[type=text]:hover {
+          font-size: 20px;
+          line-height: 20px;
+          padding: 5px 41px 5px 39px;
+          height: 60px
+        }
+      }
+
+      .multi-theme-10004 .multi-item {
+        cursor: text
+      }
+
+      .multi-theme-10834 .multi-search-btn,
+      .multi-theme-10835 .multi-search-btn {
+        width: auto;
+        top: 20px;
+        margin-right: 60px
+      }
+
+      @media (max-width:685px) {
+
+        .multi-theme-10834 .multi-search-btn,
+        .multi-theme-10835 .multi-search-btn {
+          top: 6px;
+          margin-right: 35px
+        }
+      }
+
+      .multi-theme-10835 .multi-search-btn input {
+        min-width: 120px;
+        font-weight: 600;
+        font-size: 16px
+      }
+
+      .multi-theme-10835 .multi-search-btn {
+        width: auto !important;
+        top: 1px !important;
+        margin-right: 60px;
+        min-width: 120px;
+        right: 1px !important
+      }
+
+      .multi-theme-10696.multi-theme-compact .multi-wrapper {
+        margin-top: 72px
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-10696.multi-theme-compact .multi-wrapper {
+          margin-top: 28px
+        }
+      }
+
+      .multi-theme-10848.multi-theme-compact .multi-input,
+      .multi-theme-10848.multi-theme-compact .multi-input[type=text]:focus,
+      .multi-theme-10848.multi-theme-compact .multi-input[type=text]:hover,
+      .multi-theme-10849.multi-theme-compact .multi-input,
+      .multi-theme-10849.multi-theme-compact .multi-input[type=text]:focus,
+      .multi-theme-10849.multi-theme-compact .multi-input[type=text]:hover {
+        border: none !important
+      }
+
+      .multi-theme-10855.multi-theme-compact .multi-lists .multi-grid {
+        margin-left: -20px !important
+      }
+
+      .multi-theme-10856.multi-theme-compact .multi-input[type=text],
+      .multi-theme-10856.multi-theme-compact .multi-input[type=text]:focus,
+      .multi-theme-10856.multi-theme-compact .multi-input[type=text]:hover {
+        font-size: 34px !important
+      }
+
+      @media (max-width:685px) {
+
+        .multi-theme-10856.multi-theme-compact .multi-input[type=text],
+        .multi-theme-10856.multi-theme-compact .multi-input[type=text]:focus,
+        .multi-theme-10856.multi-theme-compact .multi-input[type=text]:hover {
+          font-size: 20px !important
+        }
+      }
+
+      .multi-theme-10857.multi-theme-compact .multi-input[type=text],
+      .multi-theme-10857.multi-theme-compact .multi-input[type=text]:focus,
+      .multi-theme-10857.multi-theme-compact .multi-input[type=text]:hover {
+        font-size: 34px !important
+      }
+
+      @media (max-width:685px) {
+
+        .multi-theme-10857.multi-theme-compact .multi-input[type=text],
+        .multi-theme-10857.multi-theme-compact .multi-input[type=text]:focus,
+        .multi-theme-10857.multi-theme-compact .multi-input[type=text]:hover {
+          font-size: 20px !important
+        }
+      }
+
+      .multi-theme-10863.multi-theme-compact .multi-icon {
+        background-image: none !important
+      }
+
+      .multi-theme-10863.multi-theme-compact .multi-withLabel {
+        margin-top: 25px
+      }
+
+      .multisearch.id10863 .swiper-container {
+        z-index: 0
+      }
+
+      .multisearch.id10868 .form,
+      .multisearch.id10868 .taxons {
+        -webkit-box-flex: unset;
+        -ms-flex-positive: unset;
+        flex-grow: unset
+      }
+
+      .multi-theme-10868.multi-theme-compact .multi-filters,
+      .multi-theme-10868.multi-theme-compact .multi-form,
+      .multi-theme-10868.multi-theme-compact .multi-header,
+      .multi-theme-10868.multi-theme-compact .multi-taxon,
+      .multi-theme-10868.multi-theme-compact .multi-taxons,
+      .multi-theme-10868.multi-theme-compact .multi-taxons div,
+      .multi-theme-10868.multi-theme-compact .multi-title,
+      .multi-theme-10868.multi-theme-compact a.multi-title {
+        width: 100%
+      }
+
+      .multi-theme-10868.multi-theme-compact .multi-title span {
+        display: inline-block
+      }
+
+      .multi-theme-10868.multi-theme-compact .multi-poweredHint {
+        display: inline-block;
+        margin-right: 6px
+      }
+
+      .multi-theme-10868.multi-theme-compact .multi-wrapper {
+        width: 100%;
+        max-width: none
+      }
+
+      .multi-theme-10868.multi-theme-compact .multi-thumbnail,
+      .multi-theme-10868.multi-theme-compact .multi-wrapper {
+        -webkit-box-flex: unset;
+        -ms-flex-positive: unset;
+        flex-grow: unset
+      }
+
+      .multi-theme-10868.multi-theme-compact .multi-content span {
+        width: 100%
+      }
+
+      .multi-theme-10868.multi-theme-compact .multi-page.multi-disabled {
+        -webkit-box-flex: unset;
+        -ms-flex-positive: unset;
+        flex-grow: unset
+      }
+
+      .multi-theme-10868.multi-theme-compact .multi-lastQueries,
+      .multi-theme-10868.multi-theme-compact .multi-lastQueries div {
+        -webkit-box-flex: unset;
+        -ms-flex-positive: unset;
+        flex-grow: unset;
+        width: 100%
+      }
+
+      .multi-theme-10838 .multi-price {
+        color: #05ace2;
+        display: block
+      }
+
+      .multi-theme-10867.multi-theme-compact .multi-wrapper {
+        margin-top: 109px !important
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-10867.multi-theme-compact .multi-wrapper {
+          margin-top: 76px !important
+        }
+      }
+
+      .multi-theme-10876.multi-theme-compact .multi-title span {
+        font-size: 26px !important
+      }
+
+      .multi-theme-10887.multi-theme-compact .multi-input[type=text] {
+        height: 90px !important;
+        font-size: 34px !important;
+        padding: 6px 55px 9px 64px !important;
+        position: relative !important
+      }
+
+      .multi-theme-10884 .multi-withLabel {
+        margin-top: 22px
+      }
+
+      .multi-theme-10766 .multi-presence {
+        color: #d80909;
+        margin-left: 7px
+      }
+
+      .multi-theme-10766 .multi-price {
+        color: #000;
+        font-weight: 600 !important
+      }
+
+      .multi-theme-10776.multi-theme-compact .multi-input[type=text],
+      .multi-theme-10776.multi-theme-compact .multi-input[type=text]:focus,
+      .multi-theme-10776.multi-theme-compact .multi-input[type=text]:hover {
+        border: none !important
+      }
+
+      .multi-theme-10776.multi-theme-compact .multi-withLabel {
+        margin-top: 22px
+      }
+
+      @media (max-width:685px) {
+
+        .multi-theme-10937.multi-theme-compact .multi-wrapper,
+        .multi-theme-10938.multi-theme-compact .multi-wrapper {
+          margin-top: 52px
+        }
+      }
+
+      .multi-theme-10950.multi-theme-compact .multi-oldPrice,
+      .multi-theme-10966.multi-theme-compact .multi-oldPrice {
+        text-decoration: line-through !important
+      }
+
+      .multi-theme-10950.multi-theme-compact .multi-price,
+      .multi-theme-10966.multi-theme-compact .multi-price {
+        color: rgba(0, 0, 0, .9);
+        font-weight: 600
+      }
+
+      @media (max-width:685px) {
+
+        .multi-theme-10950.multi-theme-compact .multi-wrapper,
+        .multi-theme-10966.multi-theme-compact .multi-wrapper {
+          margin-top: 95px
+        }
+      }
+
+      @media (min-width:1200px) {
+
+        .multi-theme-10957.multi-theme-compact .multi-small,
+        .multi-theme-10958.multi-theme-compact .multi-small {
+          line-height: 20px
+        }
+
+        .multi-theme-10957.multi-theme-compact .multi-cell.multi-sidebar,
+        .multi-theme-10958.multi-theme-compact .multi-cell.multi-sidebar {
+          -webkit-box-flex: 0;
+          -ms-flex: 0 0 322px;
+          flex: 0 0 322px
+        }
+      }
+
+      .multi-theme-10975.multi-theme-compact .multi-wrapper {
+        margin-top: 125px
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-10975.multi-theme-compact .multi-wrapper {
+          margin-top: 55px
+        }
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-11002.multi-theme-compact .multi-wrapper {
+          margin-top: 50px
+        }
+      }
+
+      .multi-theme-11012.multi-theme-compact .multi-wrapper {
+        margin-top: 100px
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-11012.multi-theme-compact .multi-wrapper {
+          margin-top: 170px
+        }
+      }
+
+      .multi-theme-10997.multi-theme-compact .multi-mini .multi-input[type=text],
+      .multi-theme-10997.multi-theme-compact .multi-mini .multi-input[type=text]:focus,
+      .multi-theme-10997.multi-theme-compact .multi-mini .multi-input[type=text]:hover {
+        font-size: 20px
+      }
+
+      .multi-theme-11020.multi-theme-compact {
+        background: #ffffffb8
+      }
+
+      .multi-theme-10973 .multi-withLabel,
+      .multi-theme-11032 .multi-withLabel {
+        margin-top: 27px
+      }
+
+      .multi-theme-11017 .multi-available,
+      .multi-theme-11021 .multi-available,
+      .multi-theme-11022 .multi-available {
+        color: #4ba12a
+      }
+
+      .multi-theme-11017 .multi-available-soon,
+      .multi-theme-11021 .multi-available-soon,
+      .multi-theme-11022 .multi-available-soon {
+        color: #f16238
+      }
+
+      .multi-theme-11005.multi-theme-compact .multi-wrapper {
+        margin-top: 50px
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-11005.multi-theme-compact .multi-wrapper {
+          margin-top: 127px
+        }
+      }
+
+      .multi-theme-11089.multi-theme-compact .multi-snippet {
+        cursor: inherit
+      }
+
+      .multi-theme-11089.multi-theme-compact .multi-wrapper {
+        margin-top: 50px
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-11089.multi-theme-compact .multi-wrapper {
+          margin-top: 135px
+        }
+      }
+
+      .multisearch.id11089 body {
+        padding-right: 0
+      }
+
+      .multisearch-id11089 body {
+        overflow-y: auto !important
+      }
+
+      .multisearch.id11188 body {
+        padding-right: 0
+      }
+
+      .multisearch-id11188 body {
+        overflow-y: auto !important
+      }
+
+      .multisearch.id11189 body {
+        padding-right: 0
+      }
+
+      .multisearch-id11189 body {
+        overflow-y: auto !important
+      }
+
+      .multisearch.id11512,
+      .multisearch.id11512 body {
+        position: inherit !important;
+        overflow-y: unset !important
+      }
+
+      @media (max-width:685px) {
+
+        .multi-theme-11188.multi-theme-compact .multi-wrapper,
+        .multi-theme-11189.multi-theme-compact .multi-wrapper {
+          margin-top: 63px !important
+        }
+      }
+
+      @media (min-width:686px) and (max-width:770px) {
+
+        .multi-theme-11188.multi-theme-compact .multi-wrapper,
+        .multi-theme-11189.multi-theme-compact .multi-wrapper {
+          margin-top: 47px !important
+        }
+      }
+
+      @media (min-width:771px) and (max-width:999px) {
+
+        .multi-theme-11188.multi-theme-compact .multi-wrapper,
+        .multi-theme-11189.multi-theme-compact .multi-wrapper {
+          margin-top: 87px !important
+        }
+      }
+
+      .multi-theme-11081.multi-theme-compact .multi-input,
+      .multi-theme-11081.multi-theme-compact .multi-input[type=text]:focus,
+      .multi-theme-11081.multi-theme-compact .multi-input[type=text]:hover {
+        border: 0 !important;
+        padding: 6px 55px 9px 64px !important
+      }
+
+      .multi-theme-11099.multi-theme-compact .multi-wrapper {
+        margin-top: 36px
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-11099.multi-theme-compact .multi-wrapper {
+          margin-top: 87px
+        }
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-11107.multi-theme-compact .multi-wrapper {
+          margin-top: 60px
+        }
+      }
+
+      .multi-theme-11048.multi-theme-compact .multi-cell.multi-lists {
+        padding: 40px 0 85px 60px
+      }
+
+      .multi-theme-11048.multi-theme-compact .multi-title,
+      .multi-theme-11048.multi-theme-compact a.multi-title {
+        display: none
+      }
+
+      .multi-theme-11051.multi-theme-compact .multi-brand,
+      .multi-theme-11066.multi-theme-compact .multi-brand,
+      .multi-theme-11150.multi-theme-compact .multi-brand,
+      .multi-theme-11151.multi-theme-compact .multi-brand,
+      .multi-theme-11256.multi-theme-compact .multi-brand,
+      .multi-theme-11257.multi-theme-compact .multi-brand,
+      .multi-theme-11522.multi-theme-compact .multi-brand,
+      .multi-theme-11523.multi-theme-compact .multi-brand {
+        display: block
+      }
+
+      .multi-theme-11130.multi-theme-compact .multi-wrapper {
+        margin-top: 94px
+      }
+
+      @media (max-width:685px) {
+        .multi-theme-11130.multi-theme-compact .multi-wrapper {
+          margin-top: 105px
+        }
+      }
+
+      @media (min-width:686px) {
+        .multi-theme-11131.multi-theme-compact .multi-wrapper {
+          margin-top: 88px
+        }
+      }
+
+      .multi-theme-11171 {
+        background: hsla(0, 0%, 95%, .87) !important
+      }
+
+      .multi-theme-11171 .multi-price {
+        color: #ff7e00
+      }
+
+      .multi-theme-11051 .multi-newPrice,
+      .multi-theme-11051 .multi-newPrice .multi-currency,
+      .multi-theme-11066 .multi-newPrice,
+      .multi-theme-11066 .multi-newPrice .multi-currency,
+      .multi-theme-11150 .multi-newPrice,
+      .multi-theme-11150 .multi-newPrice .multi-currency,
+      .multi-theme-11151 .multi-newPrice,
+      .multi-theme-11151 .multi-newPrice .multi-currency,
+      .multi-theme-11256 .multi-newPrice,
+      .multi-theme-11256 .multi-newPrice .multi-currency,
+      .multi-theme-11257 .multi-newPrice,
+      .multi-theme-11257 .multi-newPrice .multi-currency,
+      .multi-theme-11522 .multi-newPrice,
+      .multi-theme-11522 .multi-newPrice .multi-currency,
+      .multi-theme-11523 .multi-newPrice,
+      .multi-theme-11523 .multi-newPrice .multi-currency {
+        color: #ff3734 !important
+      }
+
+      .multi-theme-11177.multi-search {
+        background: rgba(0, 0, 0, .5)
+      }
+
+      .multi-theme-11188 .multi-price,
+      .multi-theme-11189 .multi-price {
+        color: #17191b !important;
+        font-weight: 500;
+        font-size: 17px !important
+      }
+
+      .multi-theme-11188 .multi-oldPrice,
+      .multi-theme-11189 .multi-oldPrice {
+        color: #17191b;
+        -webkit-text-decoration-color: #f3520c;
+        text-decoration-color: #f3520c;
+        font-weight: 500;
+        margin-left: 10px
+      }
+
+      .multi-theme-11188 .multi-available,
+      .multi-theme-11189 .multi-available {
+        color: #00a507
+      }
+
+      .multi-theme-11188 .multi-not-available,
+      .multi-theme-11189 .multi-not-available {
+        color: #a5a5a5
+      }
+
+      .multi-theme-10543 .multi-added {
+        background-color: #f56426 !important;
+        background-image: unset !important
+      }
+
+      .multi-theme-10543 .multi-btn {
+        font-size: 12px !important;
+        margin-left: unset !important
+      }
+
+      .multi-theme-10544 .multi-added {
+        background-color: #f56426 !important;
+        background-image: unset !important
+      }
+
+      .multi-theme-10544 .multi-btn {
+        font-size: 12px !important;
+        margin-left: unset !important
+      }
+
+      .multi-theme-11269.multi-theme-compact .multi-withLabel,
+      .multi-theme-11270.multi-theme-compact .multi-withLabel {
+        margin-top: 25px
+      }
+
+      .multi-theme-11269.multi-theme-compact .multi-available,
+      .multi-theme-11270.multi-theme-compact .multi-available {
+        color: #93c73e
+      }
+
+      .multi-theme-10984 .multi-currency {
+        margin-left: 5px
+      }
+
+      .multi-theme-10969 .multi-withLabel,
+      .multi-theme-10971 .multi-withLabel {
+        margin-top: 24px
+      }
+
+      .multi-theme-11390 .multi-withLabel {
+        margin-top: 20px
+      }
+
+      .multi-theme-11425 .multi-withLabel {
+        margin-top: 24px
+      }
+
+      .multi-theme-11275 .multi-presence,
+      .multi-theme-11276 .multi-presence {
+        color: #14b9a0
+      }
+
+      .multisearch.id11475 body {
+        padding-right: 0;
+        overflow-y: auto !important
+      }
+
+      html.multisearch.id11481 {
+        width: 100% !important
+      }
+
+      .multi-theme-11613 .multi-input[type=text]:focus:not(.multi-error) {
+        border: 0;
+        outline: 0 !important
+      }
+
+      .multisearch body .multi-search {
+        overflow-y: scroll
+      }
+
+      .multi-search {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        line-height: 20px;
+        color: rgba(0, 0, 0, .9);
+        font-size: 16px;
+        text-rendering: optimizeLegibility;
+        background: hsla(0, 0%, 95%, .97);
+        -webkit-overflow-scrolling: touch;
+        text-align: left
+      }
+
+      .multi-search a,
+      .multi-search a:active,
+      .multi-search a:hover {
+        text-decoration: none;
+        color: rgba(0, 0, 0, .9);
+        font-weight: 400 !important
+      }
+
+      .multi-search a {
+        border: 0
+      }
+
+      .multi-wrapper {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        margin: 0 auto;
+        max-width: 1800px
+      }
+
+      .multi-layout {
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1
+      }
+
+      .multi-form,
+      .multi-results {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 3%
+      }
+
+      .multisearch,
+      .multisearch body {
+        position: absolute;
+        overflow-y: hidden;
+        width: 100%;
+        height: 100%;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box
+      }
+
+      .multisearch body {
+        padding-right: 15px
+      }
+
+      ._show_1e,
+      .label_39,
+      div#jivo-iframe-container:not(.jivo-c-mobile) {
+        z-index: 2147483646 !important
+      }
+
+      .multi-theme-full .multi-header {
+        -webkit-box-shadow: 0 1px 4px rgba(62, 57, 107, .05);
+        box-shadow: 0 1px 4px rgba(62, 57, 107, .05)
+      }
+
+      .multi-withQuery {
+        background: #fff
+      }
+
+      .multi-withQuery .multi-header {
+        -webkit-box-shadow: none;
+        box-shadow: none
+      }
+
+      .multi-theme-compact {
+        background: none
+      }
+
+      .multi-theme-compact .multi-wrapper {
+        margin: 2% auto;
+        max-width: 1420px
+      }
+
+      .multi-theme-compact .multi-layout {
+        margin: 0 2%;
+        background: #fff;
+        border-radius: 3px;
+        -webkit-box-shadow: 0 1px 4px rgba(62, 57, 107, .35);
+        box-shadow: 0 1px 4px rgba(62, 57, 107, .35);
+        overflow: hidden
+      }
+
+      .multi-theme-compact .multi-form,
+      .multi-theme-compact .multi-results {
+        max-width: none
+      }
+
+      .multi-theme-compact .multi-results {
+        margin-top: 0
+      }
+
+      .multi-theme-compact .multi-lastQueries,
+      .multi-theme-compact .multi-noResults {
+        border-top: 1px solid #e6e6e6;
+        margin-top: 5px;
+        padding: 20px 20px 30px 51px;
+        position: static;
+        background: none
+      }
+
+      .multi-header {
+        background: #fff;
+        z-index: 1
+      }
+
+      .multi-form {
+        display: block;
+        position: relative
+      }
+
+      .multi-input[type=text],
+      .multi-input[type=text]:focus,
+      .multi-input[type=text]:hover {
+        all: unset;
+        font-size: 34px;
+        font-weight: 400;
+        font-style: normal;
+        position: relative;
+        background: none;
+        border: 0;
+        color: #000;
+        height: 90px;
+        line-height: 40px;
+        margin: 0;
+        padding: 6px 55px 9px 64px;
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box
+      }
+
+      .multi-input[type=text]:focus {
+        outline: 0;
+        border: 0;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important
+      }
+
+      .multi-input[type=text]::-webkit-input-placeholder {
+        color: #000 !important;
+        opacity: .2 !important;
+        font-size: 27px;
+        padding-top: 16px
+      }
+
+      .multi-input[type=text]:-ms-input-placeholder,
+      .multi-input[type=text]::-ms-input-placeholder {
+        color: #000 !important;
+        opacity: .2 !important;
+        font-size: 27px;
+        padding-top: 16px
+      }
+
+      .multi-input[type=text]::placeholder {
+        color: #000 !important;
+        opacity: .2 !important;
+        font-size: 27px;
+        padding-top: 16px
+      }
+
+      .multi-results {
+        margin-top: 5px;
+        max-width: none
+      }
+
+      .multi-corrected {
+        margin: 2px 0 25px
+      }
+
+      a.multi-phrase {
+        display: inline-block;
+        color: #0082e6;
+        margin-top: 1px;
+        border-bottom: 1px solid #fff;
+        font-size: 16px
+      }
+
+      a.multi-phrase:hover {
+        color: #0082e6;
+        border-bottom: 1px solid rgba(0, 130, 230, .4)
+      }
+
+      .multi-phrase b {
+        all: unset;
+        font-style: italic;
+        font-weight: 700
+      }
+
+      .multi-hint {
+        color: rgba(0, 0, 0, .4);
+        font-size: 14px;
+        margin-bottom: 3px
+      }
+
+      .multi-lastQueries,
+      .multi-noResults {
+        position: absolute;
+        padding: 10px 20px 30px 63px;
+        line-height: 25px;
+        background: hsla(0, 0%, 95%, .5)
+      }
+
+      a.multi-lastQuery {
+        display: inline-block;
+        line-height: 19px;
+        color: rgba(0, 0, 0, .7)
+      }
+
+      a.multi-lastQuery:hover {
+        color: #000
+      }
+
+      a.multi-powered {
+        position: absolute;
+        right: 0;
+        bottom: 22px;
+        font-size: 13px
+      }
+
+      .multi-poweredHint {
+        color: rgba(0, 0, 0, .5)
+      }
+
+      .multi-logo {
+        width: 19px;
+        height: auto
+      }
+
+      .multi-title,
+      a.multi-title {
+        display: block;
+        border-bottom: 1px solid #e6e6e6;
+        font-size: 26px;
+        line-height: 29px;
+        padding-bottom: 6px;
+        margin-top: -7px
+      }
+
+      a.multi-item:hover,
+      a.multi-title:hover {
+        color: inherit
+      }
+
+      .multi-titleIcon {
+        display: inline-block;
+        height: 21px
+      }
+
+      .multi-title .multi-arrow-rightIcon {
+        position: absolute;
+        margin-left: 1px;
+        width: 28px;
+        height: 28px
+      }
+
+      .multi-title:hover .multi-arrow-rightIcon {
+        fill: rgba(100, 119, 136, .8)
+      }
+
+      a.multi-more {
+        display: inline-block;
+        margin-top: 15px;
+        color: rgba(100, 119, 136, .7)
+      }
+
+      a.multi-more:hover {
+        color: rgba(100, 119, 136, .9)
+      }
+
+      a.multi-item,
+      div.multi-item {
+        margin-top: 18px;
+        font-size: 15px;
+        cursor: pointer
+      }
+
+      .multi-thumbnail,
+      a.multi-item,
+      div.multi-item {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center
+      }
+
+      .multi-thumbnail {
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        border: 1px solid #eee;
+        margin-right: 15px;
+        width: 80px;
+        height: 80px;
+        position: static
+      }
+
+      .multi-image {
+        max-width: 100%;
+        max-height: 100%
+      }
+
+      .multi-content {
+        -webkit-box-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        overflow: hidden
+      }
+
+      .multi-snippet {
+        color: rgba(0, 0, 0, .55);
+        margin-top: 5px;
+        cursor: text
+      }
+
+      .multi-oldPrice {
+        padding-right: 5px;
+        text-decoration: line-through;
+        color: #bbb
+      }
+
+      .multi-price {
+        color: rgba(0, 0, 0, .55)
+      }
+
+      .multi-presence {
+        color: rgba(0, 0, 0, .55)
+      }
+
+      .multi-label {
+        position: absolute;
+        -ms-flex-item-align: start;
+        align-self: flex-start;
+        margin: 4px 0 0;
+        padding: 4px 8px 5px;
+        color: #fff;
+        border-radius: 2px;
+        font-size: 12px;
+        line-height: 12px
+      }
+
+      .multi-noImageBlog {
+        display: none
+      }
+
+      .multi-withoutUrl,
+      .multi-withoutUrl .multi-icon,
+      .multi-withoutUrl .multi-snippet {
+        cursor: default !important
+      }
+
+      .multi-pagination {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center
+      }
+
+      .multi-cell .multi-pagination {
+        margin: 40px 50px 0 auto;
+        height: 56px
+      }
+
+      a.multi-page {
+        border-radius: 50%;
+        border: 1px solid #adb9c5;
+        width: 54px;
+        height: 54px;
+        text-align: center;
+        margin: 0 10px
+      }
+
+      a.multi-page:hover {
+        border: 1px solid rgba(173, 185, 197, .8)
+      }
+
+      a.multi-page:hover .multi-arrow-leftIcon,
+      a.multi-page:hover .multi-arrow-rightIcon {
+        fill: rgba(173, 185, 197, .8)
+      }
+
+      .multi-page.multi-disabled {
+        opacity: .2
+      }
+
+      .multi-hidden {
+        visibility: hidden
+      }
+
+      .multi-previous.multi-page {
+        width: 38px;
+        height: 38px
+      }
+
+      .multi-counter {
+        -ms-flex-item-align: start;
+        align-self: flex-start;
+        line-height: 15px;
+        margin: -6px 0 0 -35px;
+        padding: 2px 4px;
+        text-align: center;
+        border-radius: 5px;
+        font-size: 12px;
+        min-width: 16px;
+        background-color: #fff;
+        color: #fff;
+        background: var(--color);
+        z-index: 1
+      }
+
+      .multi-filters {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column; //:fixed;//:0;//:30px;//:70%}.multi-filter{padding:18px 0 18px 5px;border-bottom:1px solid #e6e6e6}.multi-header{font-size:16px;color:#000;position:relative}.multi-taxons{margin:initial;padding-bottom:20px}a.multi-taxon{border-bottom:1px solid #e6e6e6;padding:16px 5px 16px 2px;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-ms-flex-align:center;align-items:center;font-size:16px;line-height:22px}.multi-taxon:first-child{border-top:1px solid #e6e6e6}.multi-taxon:hover{color:inherit}.multi-taxon.multi-open .multi-chevron-upIcon{top:1px}.multi-taxon.multi-active .multi-badge,.multi-taxon:hover .multi-badge{color:#fff;border:1px solid transparent}.multi-taxon:hover .multi-badge{background:var(--hover-color)}.multi-taxon.multi-active .multi-badge{background:var(--color)}.multi-taxon.multi-inactive:hover .multi-badge{color:inherit;border:1px solid #eee;background:inherit}.multi-filterByCategory{display:-webkit-box;display:-ms-flexbox;display:flex}.multi-open .multi-filterByCategory{font-weight:700;-webkit-font-smoothing:auto;-moz-osx-font-smoothing:auto}.multi-badge{-webkit-box-flex:0;-ms-flex:0 0 auto;flex:0 0 auto;line-height:22px;padding:0 4px;text-align:center;border-radius:5px;font-size:13px;border:1px solid #eee;min-width:21px;margin:0 0 0 5px;width:auto}@media (min-width:800px) and (max-width:960px){.multi-cell.multi-sidebar{-webkit-box-flex:0;-ms-flex:0 0 350px;flex:0 0 350px}}@media (min-width:1261px){.multi-cell{-webkit-box-flex:0;-ms-flex:0 0 33.3%;flex:0 0 33.3%}}@media (min-width:961px) and (max-width:1260px){.multi-cell{-webkit-box-flex:0;-ms-flex:0 0 50%;flex:0 0 50%}}@media (max-width:685px){.multi-search .multi-layout,.multi-search .multi-wrapper{margin:0;border-radius:0}.multi-search .multi-layout{-webkit-box-shadow:0 0 6px rgba(62,57,107,.45);box-shadow:0 0 6px rgba(62,57,107,.45)}.multi-search .multi-lastQueries,.multi-search .multi-noResults{padding:20px 2% 35px}.multi-form,.multi-results{padding:0 6%}.multi-cell.multi-sidebar{-webkit-box-flex:0;-ms-flex:0 0 100%;flex:0 0 100%;padding-bottom:0}.multi-cell.multi-lists{padding-top:30px}.multi-cell.multi-sidebar{margin-top:0}.multi-input[type=text],.multi-input[type=text]:focus,.multi-input[type=text]:hover{font-size:20px;line-height:20px;padding:5px 41px 5px 39px;height:60px}.multi-input[type=text]::-webkit-input-placeholder{font-size:15px;padding-top:5px}.multi-input[type=text]:-ms-input-placeholder,.multi-input[type=text]::-ms-input-placeholder{font-size:15px;padding-top:5px}.multi-input[type=text]::placeholder{font-size:15px;padding-top:5px}.multi-theme-full{background:#fff}.multi-theme-full .multi-header,.multi-theme-full .multi-withQuery .multi-header{-webkit-box-shadow:none;box-shadow:none}.multi-theme-full .multi-lastQueries,.multi-theme-full .multi-noResults{background:none}.multi-searchIcon{top:11px;left:5%;width:40px;height:40px}.multi-closeIcon{top:14px;right:5%;width:32px;height:32px}.multi-checkIcon{top:-2px;right:5%;width:63px;height:63px;margin-right:23px}.multi-taxon{padding:6px 5px 7px 2px;font-size:15px}.multi-badge{font-size:11px;line-height:18px}.multi-title{font-size:28px;line-height:33px;padding-bottom:8px}.multi-cell .multi-pagination{margin-top:25px}.multi-item{margin-top:24px}.multi-content{line-height:21px}.multi-thumbnail{margin-right:20px}.multi-powered{right:3%}}
+    </style>
+  </body>
+
+</html>
