@@ -173,6 +173,20 @@
 				{$order->promo|escape|nl2br}
 			</div>
 		</li>
+		<li>
+			<label class=property>Доставка за 1 час</label>
+			<div class="edit_order_detail" style='display:none;'>
+				<input type="checkbox" id="express" name="express" value="1" {if $order->express} checked="checked" {/if}/>
+				<i>отмечен - да, не отмечен - нет</i>
+			</div>
+			<div class="view_order_detail">
+			{if $order->express!=0}
+				да
+			{else}
+				нет
+			{/if}
+			</div>
+		</li>
 	</ul>
 	</div>
 

@@ -1,111 +1,58 @@
 {capture name=tabs}
-	<li class="active"><a href="index.php?module=SettingsAdmin">Настройки</a></li>
+	{if in_array('settings', $manager->permissions)}<li><a href="index.php?module=SettingsAdmin">Настройки</a></li>{/if}
 	{if in_array('currency', $manager->permissions)}<li><a href="index.php?module=CurrencyAdmin">Валюты</a></li>{/if}
 	{if in_array('delivery', $manager->permissions)}<li><a href="index.php?module=DeliveriesAdmin">Доставка</a></li>{/if}
 	{if in_array('payment', $manager->permissions)}<li><a href="index.php?module=PaymentMethodsAdmin">Оплата</a></li>{/if}
 	{if in_array('managers', $manager->permissions)}<li><a href="index.php?module=ManagersAdmin">Менеджеры</a></li>{/if}
 	{if in_array('cities', $manager->permissions)}<li><a href="index.php?module=CitiesAdmin">Города доставки</a></li>{/if}
-	{if in_array('bonus', $manager->permissions)}<li><a href="index.php?module=BonusAdmin">Бонус</a></li>{/if}
+	<li class="active"><a href="index.php?module=BonusAdmin">Бонус</a></li>
 {/capture}
 
-{$meta_title = "Настройки" scope=parent}
+{$meta_title = "Бонус" scope=parent}
 <script>
 	var limit_rows = {$limits|@count};
 </script>
+<style>
+    .form-row {
+        margin-bottom: 15px;
+        padding-right: 15px;
+    }
+    .form-row label {
+        display: block;
+        color: #777;
+        margin-bottom: 5px;
+    }
+    .form-row input[type="text"] {
+        width: 100%;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+
+    /* Стили для вывода превью */
+    .img-item {
+        display: inline-block;
+        margin: 0 20px 20px 0;
+        position: relative;
+        user-select: none;
+    }
+    .img-item img {
+        border: 1px solid #767676;
+    }
+    .img-item a {
+        display: inline-block;
+        background: url(/remove.png) 0 0 no-repeat;
+        position: absolute;
+        top: -5px;
+        right: -9px;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+</style>
 {literal}
 	<script src="design/js/autocomplete/jquery.autocomplete-min.js"></script>
 	<script src="design/js/jquery/datepicker/jquery.ui.datepicker-ru.js"></script>
-	<script>
-		$(function () {
-			$('.date-picker').datepicker({
-				regional:'ru'
-			});
-
-			$('#promo_blocks span.add_first').click(function () {
-				var html = '<li>';
-				html += '<select name="promo_time[]">';
-                html += '<option value="" disabled selected hidden>-- Не выбрано --</option>';
-                html += '<option value="10:00-12:00">10:00-12:00</option>';
-                html += '<option value="12:00-14:00">12:00-14:00</option>';
-                html += '<option value="14:00-16:00">14:00-16:00</option>';
-                html += '<option value="16:00-18:00">16:00-18:00</option>';
-                html += '<option value="18:00-20:00">18:00-20:00</option>';
-                html += '<option value="20:00-22:00">20:00-22:00</option>';
-                html += '<option value="22:00-23:00">22:00-23:00</option>';
-                html += '</select>';
-				html += '<span class="delete"><i class="dash_link">Удалить</i></span>';
-				html += '</li>';
-				$('#promo_times').append(html);
-			});
-
-            $('#promo_blocks span.add_second').click(function () {
-                var html = '<li>';
-                html += '<select name="promo_time_second[]">';
-                html += '<option value="" disabled selected hidden>-- Не выбрано --</option>';
-                html += '<option value="10:00-12:00">10:00-12:00</option>';
-                html += '<option value="12:00-14:00">12:00-14:00</option>';
-                html += '<option value="14:00-16:00">14:00-16:00</option>';
-                html += '<option value="16:00-18:00">16:00-18:00</option>';
-                html += '<option value="18:00-20:00">18:00-20:00</option>';
-                html += '<option value="20:00-22:00">20:00-22:00</option>';
-                html += '<option value="22:00-23:00">22:00-23:00</option>';
-                html += '</select>';
-                html += '<span class="delete"><i class="dash_link">Удалить</i></span>';
-                html += '</li>';
-                $('#promo_times_second').append(html);
-            });
-
-			$('#promo_blocks').on('click', '.delete', function () {
-				$(this).closest('li').remove();
-			});
-
-            // Добавление лимита
-            $('#limit_blocks span.add').click(function() {
-                var html = '<ul>';
-                html += '<li></li>';
-                html += '<li><input class="date-picker" type="text" value="" name="limits[' + limit_rows + '][date]" autocomplete="off"></li>';
-                html += '<li><input type="text" name="limits[' + limit_rows + '][time]"></li>';
-                html += '<li><input type="text" name="limits[' + limit_rows + '][products_limit]"></li>';
-                html += '<li><select class="simpla_inp_city" name="limits[' + limit_rows + '][city]">';
-                html += '<option value="" disabled selected hidden>-- Не выбрано --</option>';
-                {/literal}
-                    {foreach $delivery_city as $key => $city}
-                    html += '<option value="{$city->name}">{$city->name}</option>';
-                    {/foreach}
-                        {literal}
-                        html += '</select></li>';
-                        html += '<li style="text-align: center; margin-top: 3px;font-size: 16px;"><b></b></li>';
-                        html += '<li><span class="delete"><i class="dash_link">Удалить</i></span></li>';
-                        html += '</ul>';
-                        limit_rows++;
-                        $('#limits').append(html);
-                        $('.date-picker').datepicker({
-                            regional:'ru'
-                        });
-                    });
-
-            $('#limits').on('click', ' .delete', function () {
-                limit_rows--;
-                var limit_id = $(this).closest('ul').find('li:first-child input').val();
-                var row = $(this).closest('ul');
-
-                if (limit_id) {
-                    $.ajax({
-                        url: 'ajax/delete_limit.php',
-                        type: 'POST',
-                        dataType: 'json',
-                        data: {limit_id},
-                        success: function () {
-                            row.remove();
-                        }
-                    })
-                } else {
-                    row.remove();
-                }
-
-            });
-		});
-	</script>
+	
 {/literal}
 {if $message_success}
 <!-- Системное сообщение -->
@@ -129,7 +76,83 @@
 
 
 <!-- Основная форма -->
-<form method=post id=product enctype="multipart/form-data">
+<form method="post" action="/simpla/design/html/imgforms/save_reviews.php" enctype='multipart/form-data' id=product >
+<input type=hidden name="session_id" value="{$smarty.session.id}">
+    <h3>форма заполнения бонуса:</h3>
+    <div class="form-row">
+        <label>title:</label>
+        <input type="text" name="title" required>
+    </div>
+    <div class="form-row">
+        <label>textSmall:</label>
+        <input type="text" name="textSmall" required>
+    </div>
+    <div class="form-row">
+        <label>textBig:</label>
+        <input type="text" name="textBig" required>
+    </div>
+    <div class="form-row">
+        <label>Изображения 1:</label>
+        <div class="img-list" id="js-file-list"></div>
+        <input id="fileToUpload" type="file" name="fileToUpload" multiple accept=".jpg,.jpeg,.png,.gif">
+    </div>
+    <div class="form-row">
+        <label>Изображения 2:</label>
+        <div class="img-list" id="js-file-list"></div>
+        <input id="fileToUploads" type="file" name="fileToUploads" multiple accept=".jpg,.jpeg,.png,.gif">
+    </div>
+    <h3>Условие бонуса:</h3>
+    <div style="display: flex">
+    <div class="form-row">
+        <label>Дата заказа:</label>
+        <input type="date" id="date_zakaz" name="date_zakaz">
+    </div>
+    <div class="form-row">
+        <label>Выбор города:</label>
+        <select name="city[]" multiple="multiple" size="20">
+
+
+
+        </select>
+    </div>
+
+        <div class="form-row">
+            <label>Бренды:</label>
+            <select name="brend[]" multiple="multiple" size="20">
+
+
+
+
+
+            </select>
+        </div>
+
+        <div class="form-row">
+            <label>Акция:</label>
+            с <input type="date" id="aktia_at" name="aktia_at">
+            по  <input type="date" id="aktia_to" name="aktia_to">
+
+        </div>
+        <div class="form-row">
+            <label>Срок действия бонуса:</label>
+            с <input type="date" id="bonus_at" name="bonus_at">
+            по  <input type="date" id="bonus_to" name="bonus_to">
+
+        </div>
+    </div>
+    <div class="form-submit">
+        
+    </div>
+	<input class="button_green button_save" type="submit" name="save" value="Сохранить" />
+</form>
+
+
+
+
+
+
+<!-- Основная форма ОРИГИНАЛ-->
+<form method=post id=product enctype="multipart/form-data" style="display:none;">
 <input type=hidden name="session_id" value="{$smarty.session.id}">
 
 		<!-- Параметры -->

@@ -29,7 +29,7 @@ class Orders extends Simpla
 
         $query = $this->db->placehold("SELECT  o.id, o.delivery_id, o.delivery_price, o.separate_delivery, o.self_discharge_time,
 										o.payment_method_id, o.paid, o.call_back, o.promo, o.payment_date, o.closed, o.discount, o.coupon_code, o.coupon_discount,
-										o.date, o.user_id, o.name, o.address, o.flat_num, o.phone, o.email, o.comment, o.status,
+										o.date, o.user_id, o.name, o.address, o.flat_num, o.express, o.phone, o.email, o.comment, o.status,
 										o.url, o.total_price, o.note, o.wh_note, o.ip, o.courier_id, o.city_id/*regions*/, region_id/*/regions*/, o.custom_discount
 										FROM __orders o $where LIMIT 1");
 
@@ -125,7 +125,7 @@ class Orders extends Simpla
         if (!empty($filter['delivery_metod']) && !empty($filter['date_delivery'])) {
             $query = $this->db->placehold("SELECT o.id, o.delivery_id, o.delivery_price, o.separate_delivery, o.self_discharge_time,
 										o.payment_method_id, o.paid, o.call_back, o.promo, o.payment_date, o.closed, o.discount, o.coupon_code, o.coupon_discount,
-										o.date, o.user_id, o.name, o.address, o.flat_num, o.phone, o.email, o.comment, o.status,
+										o.date, o.user_id, o.name, o.address, o.flat_num, o.express, o.phone, o.email, o.comment, o.status,
 										o.url, o.total_price, o.note, o.wh_note/*regions*/, region_id/*/regions*/, o.custom_discount
 									FROM __orders AS o
 									LEFT JOIN __orders_labels AS ol ON o.id=ol.order_id
@@ -135,7 +135,7 @@ class Orders extends Simpla
         else{
             $query = $this->db->placehold("SELECT o.id, o.delivery_id, o.delivery_price, o.separate_delivery, o.self_discharge_time,
 										o.payment_method_id, o.paid, o.call_back, o.promo, o.payment_date, o.closed, o.discount, o.coupon_code, o.coupon_discount,
-										o.date, o.user_id, o.name, o.address, o.flat_num, o.phone, o.email, o.comment, o.status,
+										o.date, o.user_id, o.name, o.address, o.flat_num, o.express, o.phone, o.email, o.comment, o.status,
 										o.url, o.total_price, o.note, o.wh_note/*regions*/, region_id/*/regions*/, o.custom_discount
 									FROM __orders AS o
 									LEFT JOIN __orders_labels AS ol ON o.id=ol.order_id

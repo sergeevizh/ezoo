@@ -308,6 +308,10 @@
 										<input type="text" class="order-block__field js-input-flat"
 											   placeholder="Квартира №*" name="flat_num" value="{$flat_num}" required>
 									</div>
+									<div class="order-block__row js-order-block-row" style="text-align:center;">
+										<input type="checkbox" id="express" name="express" value="1"/>
+										<label for="express" style="font-size: 16px;">Доставка за 1 час</label>
+									</div>
 									{if $city}
 									<div class="order-block__row js-order-block-row city_area_block">
 										<select name="city_area" class="order-block__field city_area">
@@ -592,4 +596,25 @@
 <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;coordorder=longlat&amp;apikey=06121448-377d-4258-b280-81672bfc97b6"
 		type="text/javascript"></script>
 <script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
+<script>
+$( document ).ready(function() {
+	$("#express").click(function(){
+		if($("#express").prop('checked')){
+			$('.js-time').val('10:00 - 12:00');
+			$('.js-time').css('display','none');
+		}else{
+			$('.js-time').css('display','block');
+			$('.js-time').val('');
+		}
+	});
+	
+	$('[name="self_discharge_time"]').click(function(){
+		setInterval(function(){
+			if($("#express").prop('checked')){
+				$('.js-time').val('22:00 - 23:00');	
+				}
+			},2000);
+	});
+});
+</script>
 

@@ -72,6 +72,11 @@
 								<td style="color: #808080; padding-left: 0;" valign="top" width="120">Дата и время</td>
 								<td valign="top">{$order->self_discharge_time|escape}</td>
 							</tr>
+							<tr>
+								<td style="color: #808080; padding-left: 0;" valign="top" width="120">Доставка за 1 час</td>
+								<td valign="top">{$order->express|escape}</td>
+							</tr>
+							
 							{*{if $order->comment}*}
 							{*<tr>*}
 							{*<td style="color: #808080; padding-left: 0;" valign="top" width="120">Email</td>*}

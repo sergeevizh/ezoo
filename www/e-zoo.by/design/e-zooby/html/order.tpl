@@ -113,6 +113,12 @@
 							<div class="order__data-list-description">{$order->address|escape}</div>
 						</div>
 					{/if}
+					{if $order->express}
+						<div class="order__data-list-row">
+							<div class="order__data-list-title">Доставка за 1 час</div>
+							<div class="order__data-list-description">{$order->express|escape}</div>
+						</div>
+					{/if}
 					{if $order->self_discharge_time}
 						<div class="order__data-list-row">
 							<div class="order__data-list-title">Дата и время</div>

@@ -76,7 +76,7 @@
 					{/if}
 				{/if}
 <!--			TODO blue - если заказ помечен ветпрепарат-->
-			<div class="{if $order->paid}green{/if} row {if $order->lecense}blue{/if} {if $order->marketing_offer}yellow{/if}">
+			<div class="{if $order->paid}green{/if} row {if $order->lecense}blue{/if} {if $order->marketing_offer}yellow{/if} {if $order->express}red{/if}">
 		 		<div class="checkbox cell">
 					<input type="checkbox" name="check[]" value="{$order->id}"/>
 				</div>

@@ -72,6 +72,7 @@ class CartView extends View
             //$order->name = $this->request->post('name');  отключаем имя для заказа
             //$order->email = $this->request->post('email');  отключаем почту для заказа
             $order->self_discharge_time = trim($this->request->post('self_discharge_time'));
+			
             $time = trim($this->request->post('time'));
             $order->phone = $this->request->post('phone');
             $order->comment = $this->request->post('comment');
@@ -79,6 +80,10 @@ class CartView extends View
 //            $order->address = $this->request->post('address');
             $order->address = $this->request->post('yamap_input');
             $order->flat_num = $this->request->post('flat_num');
+            $order->express = $this->request->post('express');
+			if($order->express == 1){
+				$time='';
+			}
 
             $order->promo = $this->request->post('promo');
             $order->courier_id = (int)$this->request->post('suggestion_courier');
@@ -166,6 +171,7 @@ class CartView extends View
             $this->design->assign('phone', $order->phone);
             $this->design->assign('address', $order->address);
             $this->design->assign('flat_num', $order->flat_num);
+            $this->design->assign('express', $order->express);
             $this->design->assign('self_discharge_time', $order->self_discharge_time);
 
             //бренд
@@ -989,6 +995,7 @@ class CartView extends View
 
         // Данные пользователя
         if ($this->user) {
+			print_r($this->design->assign);
             $last_order = $this->orders->get_orders(array('user_id' => $this->user->id, 'limit' => 1));
             $last_order = reset($last_order);
             if ($last_order) {
@@ -1003,12 +1010,14 @@ class CartView extends View
                 }
                 $this->design->assign('address', $this->user->address);
                 $this->design->assign('flat_num', $this->user->flat_num);
+                //$this->design->assign('express', $this->user->express);
             } else {
                 /*$this->design->assign('name', $this->user->name);
                 $this->design->assign('email', $this->user->email);*/
                 $this->design->assign('phone', $this->user->phone);
                 $this->design->assign('address', $this->user->address);
                 $this->design->assign('flat_num', $this->user->flat_num);
+               // $this->design->assign('express', $this->user->express);
             }
         }
 

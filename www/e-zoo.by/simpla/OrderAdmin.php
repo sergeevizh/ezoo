@@ -26,6 +26,7 @@ class OrderAdmin extends Simpla
             $order->address = $this->request->post('address');
             $order->comment = $this->request->post('comment');
             $order->flat_num = $this->request->post('flat_num');
+			$order->express = $this->request->post('express');
             $order->promo = $this->request->post('promo');
             $order->self_discharge_time = $this->request->post('self_discharge_time');
             $order->note = $this->request->post('note');
@@ -69,7 +70,6 @@ class OrderAdmin extends Simpla
             } else {
                 $prev_date_and_time = $this->orders->get_order($order->id)->self_discharge_time;
                 $this->orders->update_order($order->id, $order);
-
                 if ($prev_date_and_time !== $order->self_discharge_time) {
                     $date_and_time = explode(' ', $prev_date_and_time);
                     unset($date_and_time[0]);
@@ -827,6 +827,8 @@ class OrderAdmin extends Simpla
             if (empty($order->address)) {
                 $order->address = $this->request->get('address', 'string');
             }
+
+			
             if (empty($order->email)) {
                 $order->email = $this->request->get('email', 'string');
             }

@@ -6,6 +6,7 @@
 	<li class="active"><a href="index.php?module=PaymentMethodsAdmin">Оплата</a></li>
 	{if in_array('managers', $manager->permissions)}<li><a href="index.php?module=ManagersAdmin">Менеджеры</a></li>{/if}
 	{if in_array('cities', $manager->permissions)}<li><a href="index.php?module=CitiesAdmin">Города доставки</a></li>{/if}
+	{if in_array('bonus', $manager->permissions)}<li><a href="index.php?module=BonusAdmin">Бонус</a></li>{/if}
 {/capture}
 
 {* Title *}

@@ -46,6 +46,7 @@ class Managers extends Simpla
         'check_packed',
         'uncheck_packed',
         'delivery_area',
+        'bonus',
         /*regions*/
         'regions'
         /*/regions*/

@@ -776,6 +776,9 @@ div#sort_links a
 #list .blue{
 	background-color: #8ab7ff;
 }
+#list .red{
+	background-color: #ff0000b8;
+}
 
 #list .variants div.expand_variant{
 	float: right;
