@@ -55,6 +55,7 @@ class IndexAdmin extends Simpla
         'ImagesAdmin'         => 'design',
         'SettingsAdmin'       => 'settings',
         'BonusAdmin'  	      => 'bonus',
+        'BonusOneAdmin'  	  => 'bonus',
         'CurrencyAdmin'       => 'currency',
         'DeliveriesAdmin'     => 'delivery',
         'DeliveryAdmin'       => 'delivery',

@@ -102,72 +102,39 @@ class Bonus extends Simpla
 	
 	public function getNameIdBonuses()
 	{
-		$query = $this->db->placehold("SELECT `name`, `id`, `status` FROM __bonuss");
+		$query = $this->db->placehold("SELECT `name`, `id` FROM __bonuss");
         $this->db->query($query);
         return $this->db->results();
 	}
 	public function getBonusbyId($id)
 	{
-		$query = $this->db->placehold("SELECT * FROM __bonuss as `bs` left join __bonus_conditionss as `bc` ON bs.id=bc.id_bonus where bs.id=".$id);
+		$query = $this->db->placehold("SELECT * FROM __bonuss as `bs` inner join __bonus_conditionss as `bc` ON bs.id=bc.id_bonus where bs.id=".$id);
         $this->db->query($query);
         return $this->db->result();
 	}
 	public function updateSbonuss($bonus)
     {
 		$sq = "UPDATE __bonuss SET `name` = '".$bonus->name."', `desc_mini` = '".$bonus->desc_mini."', `description` = '".$bonus->description.
-				"', `status` = '".$bonus->status."', `percent` = '".$bonus->percent."'";
-		if(!empty($bonus->img_preview))
-			$sq.=", `img_preview` = '".$bonus->img_preview."'";	
+				"', `status` = ".$bonus->status.", `percent` = ".$bonus->percent;
 		if(!empty($bonus->img_detail))
-			$sq.=", `img_detail` = '".$bonus->img_detail."'";	
-		$where = " WHERE `id` = '".$bonus->id."'";
-		$sql = $this->db->placehold($sq.$where);
-		$this->db->query($sql);
-    } 
-	public function updatebonusconditionss($bonus)
+			$sq.= ", `img_preview` = '".$bonus->img_preview."'";
+		if(!empty($bonus->img_detail))
+			$sq.= ", `img_detail` = ".$bonus->img_detail."'";
+		$sq.= " WHERE `id` = ".$bonus->id;
+		//$sql = $this->db->placehold($sq);
+		//$this->db->query($sql);
+    }
+	public function updateBbonusConditionss($bonus)
     {	
+		$sq = "UPDATE __bonus_conditionss SET ";
 		
-		$sql = $this->db->placehold("SELECT id FROM `__bonus_conditionss` WHERE `id_bonus` = '".$bonus->id."'");
-		$this->db->query($sql);
-
-			$sq = "UPDATE __bonus_conditionss SET `date_order` = '".$bonus->date_order."', `time_dilevery` = '".$bonus->time_dilevery."', `cities` = '".$bonus->cities."', 
-				`summ` = '".$bonus->summ."', `brands` = '".$bonus->brands."', `products` = '".$bonus->products."', `time_from` = '".$bonus->time_from."', 
-				`time_to` = '".$bonus->time_to."', `time_from_sale` = '".$bonus->time_from_sale."', `time_to_sale` ='".$bonus->time_to_sale."', 
-				`ifstatus` = '".$bonus->ifstatus."', `csv` = '".$bonus->csv."' WHERE `id_bonus` = '".$bonus->id."'";
-			
-		$sql = $this->db->placehold($sq);
-		$this->db->query($sql);
+		
+		$where = " WHERE `id_bonus` = ".$bonus->id;
+		//$sql = $this->db->placehold($sq.$where);
+		//$this->db->query($sql);
 	}
-	public function updatebonuspromos($bonus)
-    {	
-		foreach ($bonus->promokod as $prom){
-			$query = $this->db->placehold("INSERT INTO __bonus_promos (`id_bonus`, `promo`,`active`) VALUES (?,?,?)", $bonus->id, $prom['promo'],$prom['active']);
-        if(!$this->db->query($query)){
-			$query = $this->db->placehold("UPDATE __bonus_promos SET `id_bonus` = '".$bonus->id."', `active` = '".$prom['active']."' WHERE `promo` = '".$prom['promo']."'");
-			$this->db->query($query);
-			}
-		}
-	}
-	public function getidbonus()
-    {
-		$query = "SELECT id FROM __bonuss WHERE  ID = (SELECT MAX(ID) FROM __bonuss)";
-		$this->db->query($query);
-		$id = $this->db->result()->id;
-		return $id;
-	}
-	public function createBonus($bonus){
-		$query = $this->db->placehold("INSERT INTO __bonuss (`name`, `desc_mini`,`description`,`img_preview`, `img_detail`,`status`, `percent`) VALUES ('". 
-			$bonus->name."','".$bonus->desc_mini."','".$bonus->description."','".$bonus->img_preview."','".$bonus->img_detail."','".$bonus->status."','".$bonus->percent."')");
-		$this->db->query($query);
-		//получаем id текущего бонуса
-		$bonus->id = Bonus::getidbonus();
-		$query = $this->db->placehold("INSERT INTO __bonus_conditionss (`id_bonus`, `date_order`, `time_dilevery`, `cities`, `summ`, `brands`, `products`, `time_from`, 
-			`time_to`, `time_from_sale`, `time_to_sale`, `ifstatus`, `csv`) VALUES ('".$bonus->id."','".$bonus->date_order."','".$bonus->time_dilevery."','".$bonus->cities."','".
-			$bonus->summ."','".$bonus->brands."','".$bonus->products."','".$bonus->time_from."','".$bonus->time_to."','".$bonus->time_from_sale."','".$bonus->time_to_sale."','".
-			$bonus->ifstatus."','".$bonus->csv)."')";
-		$this->db->query($query);
-		return $bonus->id;
-	}
+	
+	
 	
 	
 	
@@ -178,18 +145,75 @@ class Bonus extends Simpla
         return isset($this->vars[$name]);
     }
 
-    
-    public function deleteBonus($bonus)
-    {	
-        $query = $this->db->placehold("DELETE FROM __bonuss  WHERE `id` = ?", $bonus->id);
-		//echo $query;
-		$this->db->query($query);
-		$query = $this->db->placehold("DELETE FROM __bonus_conditionss WHERE `id_bonus` = ?", $bonus->id);
-		//echo $query;
-		$this->db->query($query);
-		$query = $this->db->placehold("DELETE FROM __bonus_promos WHERE `id_bonus` = ?", $bonus->id);
-		//echo $query;
+    public function checkPickupSetting($setting_name)
+    {
+        $query = $this->db->placehold("SELECT `setting_id`, `value` FROM __settings WHERE `name` = ?", htmlspecialchars(trim($setting_name)));
+        $this->db->query($query);
+
+        return $this->db->result();
+    }
+
+    public function getProductsWithPickups($pickup)
+    {
+        $query = $this->db->placehold("SELECT `id` as product_id FROM __products WHERE `pickup` = ?", (int)$pickup);
+        $this->db->query($query);
+
+        return $this->db->results();
+    }
+    public function getProductsWithLecense($lecense)
+    {
+        $query = $this->db->placehold("SELECT `id` as product_id FROM __products WHERE `lecense` = ?", (int)$lecense);
+        $this->db->query($query);
+
+        return $this->db->results();
+    }
+
+    public function insertSetting($setting_name, $data)
+    {
+        $query = $this->db->placehold("INSERT INTO __settings (`name`, `value`) VALUES (?,?)", html_entity_decode(trim($setting_name)), serialize($data));
+        $this->db->query($query);
+        $id = $this->db->insert_id();
+        return $id;
+    }
+    public function insertSettingLecense($setting_name, $data)
+    {
+        $query = $this->db->placehold("INSERT INTO __settings (`name`, `value`) VALUES (?,?)", html_entity_decode(trim($setting_name)), serialize($data));
+        $this->db->query($query);
+        $id = $this->db->insert_id();
+        return $id;
+    }
+
+    public function deleteSettings($name)
+    {
+        $query = $this->db->placehold("DELETE FROM __settings WHERE `name` = ?", htmlspecialchars(trim($name)));
         $this->db->query($query);
     }
-   
+    public function deleteSettingsLecense($name)
+    {
+        $query = $this->db->placehold("DELETE FROM __settings WHERE `name` = ?", htmlspecialchars(trim($name)));
+        $this->db->query($query);
+    }
+
+    public function updatePickupForProductsAndSetNull()
+    {
+        $sql = $this->db->placehold("UPDATE __products SET `pickup` = null WHERE `pickup` = 1");
+        $this->db->query($sql);
+    }
+
+    public function updatePickupForProducts($product_id)
+    {
+        $sql = $this->db->placehold("UPDATE __products SET `pickup` = 1 WHERE `id` = ?", (int)$product_id);
+        $this->db->query($sql);
+    }
+    public function updateLecenseForProductsAndSetNull()
+    {
+        $sql = $this->db->placehold("UPDATE __products SET `lecense` = null WHERE `lecense` = 1");
+        $this->db->query($sql);
+    }
+
+    public function updateLecenseForProducts($product_id)
+    {
+        $sql = $this->db->placehold("UPDATE __products SET `lecense` = 1 WHERE `id` = ?", (int)$product_id);
+        $this->db->query($sql);
+    }
 }

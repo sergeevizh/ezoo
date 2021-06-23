@@ -82,7 +82,7 @@ class CartView extends View
             $order->flat_num = $this->request->post('flat_num');
             $order->express = $this->request->post('express');
 			if($order->express == 1){
-				$time='';
+				//$time='';
 			}
 
             $order->promo = $this->request->post('promo');

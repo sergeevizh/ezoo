@@ -215,6 +215,8 @@ class IndexView extends View
 
         // Содержимое корзины
         $this->design->assign('cart', $cart);
+		//Бонус
+        $this->design->assign('bonus', $bonus);
 
         // Категории товаров
         $this->design->assign('categories', $this->categories->get_categories_tree(array('visible' => 1, 'products_count' => true)));

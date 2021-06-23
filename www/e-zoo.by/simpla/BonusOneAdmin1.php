@@ -12,42 +12,156 @@
 require_once('api/Simpla.php');
 require 'vendor/autoload.php';
 
-use PHPExcel;
-use PHPExcel_IOFactory;
 
-class BonusAdmin extends Simpla
+class BonusOneAdmin extends Simpla
 {
     private $allowed_image_extentions = array('png', 'gif', 'jpg', 'jpeg', 'ico');
     private $passwd_file;
     private $htaccess_file;
-	
+
     public function fetch()
     {
-		$bonus = new stdClass;
         $this->passwd_file = $this->config->root_dir . '/simpla/.passwd';
         $this->htaccess_file = $this->config->root_dir . '/simpla/.htaccess';
-
         $managers = $this->managers->get_managers();
+		$bon_id = $this->request->get('id');
         $this->design->assign('managers', $managers);
         $this->design->assign('promo_count', $this->promo->get_codes_count());
         $this->design->assign('promo_count_second', $this->promo_second->get_codes_count());
-        $this->design->assign('promo_count_second', $this->promo_second->get_codes_count());
-        //$this->design->assign('delivery_city', $this->city->get_cities());
-		
-		$bonus->cities = $this->city->get_cities();
-		$bonus->bonuses = $this->bonus->getNameIdBonuses();
-		
-		
-		
-		
-		$this->design->assign('bonusall', $bonus->bonuses);
-		$this->design->assign('bonus_count', count($bonus->bonuses));
+        $this->design->assign('delivery_city', $this->city->get_cities());
+        $this->design->assign('brands', $this->brands->get_brands());
+        $this->design->assign('times', $this->settings->times);
+		$bonus = $this->bonus->getBonusbyId($bon_id);
+		//статусы условий
+		if(!empty($bonus)){
+			$tmpif = explode(';',$bonus->ifstatus);
+			$tr = array();
+			$tr2 = array();
+			foreach ($tmpif as $val){
+				$tr = explode(':',$val);
+				$tr2[$tr[0]] = $tr[1];
+			}
+			$bonus->ifstatus = $tr2;
+			print_r($bonus->ifstatus);
+		}
+		$this->design->assign('bonus', $bonus);
+		$this->design->assign('boncity', explode(';',$bonus->cities));
+		$this->design->assign('bonbrands', explode(';',$bonus->brands));
+		//формируем продукты
+		$related_products = array();
+		if (!empty($bonus->products)) {
+			$prod_id = explode(';',$bonus->products);
+			foreach ($prod_id as $pr){$related_products[]['id'] = $pr;}
+			$temp_products = $this->products->get_products(array('id' => $prod_id, 'limit' => count($prod_id)));
+			foreach ($temp_products as $key => $temp_product) {
+				$related_products[$key]['name'] = $temp_product->name;
+			}
+			$related_products_images = $this->products->get_images(array('product_id' => $prod_id));
+			foreach ($related_products_images as $image) {
+				foreach ($related_products as $key => $related_product){
+					if($related_product['id'] == $image->product_id )
+						$related_products[$key]['imgname'] = $image->filename;
+				}
+			}
+		}
+		$this->design->assign('related_products', $related_products);//передаем в шаблон
+	
 
-		//$this->bonuses = $this->bonus->getNameIdBonuses();
+		
+		if ($this->request->method('POST')) {	
+				$bonus = new stdClass;
+				$bonus->name = $this->request->post('bonus_name');
+				$bonus->desc_mini = $this->request->post('bonus_preview');
+				$bonus->description = $this->request->post('bonus_description');
+				$bonus->summ = $this->request->post('bonus_summ');
+				$bonus->percent = $this->request->post('bonus_percent');
+				$bonus->status = $this->request->post('bonus_status');
+				$bonus->time_from_sale = $this->request->post('bonus_date_ac_from');
+				$bonus->time_to_sale = $this->request->post('bonus_date_ac_to');
+				$bonus->time_from = $this->request->post('bonus_date_from');
+				$bonus->time_to = $this->request->post('bonus_date_to');
+				$bonus->date_order = $this->request->post('bonus_date_order');
+				$bonus->time_dilevery = $this->request->post('bonus_time_dilevery');
+				if(!empty($this->request->post('city')))
+					$bonus->cities = implode(';',$this->request->post('city'));
+				if(!empty($this->request->post('brend')))
+					$bonus->brands = implode(';',$this->request->post('brend'));
+				if(isset($_POST['related_products']))
+					$bonus->products = implode(';',$this->request->post('related_products'));
+				
+				$host = '/simpla/files/bonus/';	
+				$uploaddir = $this->config->root_dir.'simpla/files/bonus/';
+				
+				//print_r($_POST);
+				//загрузка файла csv
+				if (!empty($_FILES['csv_file']['tmp_name']) && !empty($_FILES['csv_file']['name'])) {
+
+                    $file_data = fopen($_FILES['csv_file']['tmp_name'], 'r');
+                    $column = fgetcsv($file_data,0, ";");
+                    while($column = fgetcsv($file_data,0, ";"))
+                    {
+                        $row_data[] = array(
+                            'promo' => $column[0],
+                            'active'  => $column[1]
+                        );
+                    }
+					$index = rand(0,10000);
+                    $attachment_tmp_name = $_FILES['csv_file']['tmp_name'];
+					$uploadfile = $index.'_'.basename($_FILES['csv_file']['name']);
+                    if(move_uploaded_file($attachment_tmp_name, $uploaddir.$uploadfile))
+						$bonus->csv = $host.$uploadfile;
+					else $bonus->csv = NULL;
+					$bonus->promokod = $row_data;
+                }
+				//загрузка картинки img_preview
+				if (!empty($_FILES['img_preview']['tmp_name']) && !empty($_FILES['img_preview']['name'])) {
+					$index = rand(0,10000);
+                    $attachment_tmp_name = $_FILES['img_preview']['tmp_name'];
+					$uploadfile = $index.'_'.basename($_FILES['img_preview']['name']);
+                    if(move_uploaded_file($attachment_tmp_name, $uploaddir.$uploadfile))
+						$bonus->img_preview = $host.$uploadfile;
+					else $bonus->img_preview = NULL;
+                }
+				//загрузка картинки img_detail
+				if (!empty($_FILES['img_detail']['tmp_name']) && !empty($_FILES['img_detail']['name'])) {
+					$index = rand(0,10000);
+                    $attachment_tmp_name = $_FILES['img_detail']['tmp_name'];
+					$uploadfile = $index.'_'.basename($_FILES['img_detail']['name']);
+                    if(move_uploaded_file($attachment_tmp_name, $uploaddir.$uploadfile))
+						$bonus->img_detail = $host.$uploadfile;
+					else $bonus->img_detail = NULL;
+                }
+
+				echo "<pre>";
+				print_r($bonus);
+				echo "</pre>";
+	
+			
+				
+				//print_r($bonus);	
+			//запись в бд
+			if(isset($bonus->id)){//если обновляем
+				//update
+				$this->bonus->updateSbonuss($bonus);
+				$this->bonus->updateBbonusConditionss($bonus);
+				//update кодов+ условий
+				
+				//подумать с кодами
+			}else{// или создаем новый
+				//insert S_bonuss
+				//добавить новый объект id к $bonus через select из s_bonuss
+				// еще 2 инсерат
+			}
+
+
+
+
+				
+		}
 		/*
         if ($this->request->method('POST')) {
             $parameters = '';
-			echo 'tut';
+
             $this->settings->site_name = $this->request->post('site_name');
             $this->settings->company_name = $this->request->post('company_name');
             $this->settings->date_format = $this->request->post('date_format');
@@ -215,7 +329,7 @@ class BonusAdmin extends Simpla
                     }
 
                 };
-                header("Location: ".$this->config->root_url.'/simpla/index.php?module=BonusAdmin' . $parameters);
+                header("Location: ".$this->config->root_url.'/simpla/index.php?module=BonusOneAdmin' . $parameters);
             }
 
             $this->design->assign('message_success', 'saved');
@@ -228,9 +342,7 @@ class BonusAdmin extends Simpla
             }
         }*/
 		
-
-
-
-        return $this->design->fetch('bonus.tpl');
+		
+        return $this->design->fetch('bonusOne.tpl');
     }
 }

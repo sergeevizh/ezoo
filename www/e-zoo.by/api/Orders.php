@@ -280,10 +280,12 @@ class Orders extends Simpla
     public function add_order($order)
     {
         $order = (object)$order;
-//        echo '<pre>';
-//        print_r($order);
-//        echo '</pre>';
-//        exit;
+		/*
+	    echo '<pre>';
+        print_r($order);
+        echo '</pre>';
+        exit;
+		*/
         $order->url = md5(uniqid($this->config->salt, true));
         $set_curr_date = '';
         if (empty($order->date)) {

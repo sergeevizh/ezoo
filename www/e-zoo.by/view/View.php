@@ -192,6 +192,7 @@ class View extends Simpla
 
             $this->design->assign('config', $this->config);
             $this->design->assign('settings', $this->settings);
+            $this->design->assign('bonus', $this->bonus);
 
             //Бренд
             //	$this->design->assign('brands', $this->brands);

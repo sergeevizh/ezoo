@@ -66,6 +66,7 @@ class Simpla
         'delivery'   => 'Delivery',
         'payment'    => 'Payment',
         'orders'     => 'Orders',
+        'bonus'      => 'Bonus',
         'users'      => 'Users',
         'coupons'    => 'Coupons',
         'comments'   => 'Comments',
