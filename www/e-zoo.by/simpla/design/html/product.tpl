@@ -479,6 +479,13 @@ overflow-y: auto;
 			<label class="property">Наименование для маркета:  </label><input name="name_yan_market" size="80" type="text" value="{$product->name_yan_market|escape}"/>
 		</div>
 	</div><br><hr>
+	
+	<div>Параметры для выгрузки в Onliner.by</div><br>
+	<div>
+		<div>
+			<label class="property">Наименование для Onliner.by:  </label><input name="name_onliner_market" size="80" type="text" value="{$product->name_onliner_market|escape}"/>
+		</div>
+	</div><br><hr>
 
 	<div id="product_brand" {if !$brands}style='display:none;'{/if}>
 		<label>Бренд</label>

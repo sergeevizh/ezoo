@@ -27,6 +27,7 @@ class ProductAdmin extends Simpla
             $product->id = $this->request->post('id', 'integer');
             $product->name = $this->request->post('name');
             $product->name_yan_market = $this->request->post('name_yan_market');
+            $product->name_onliner_market = $this->request->post('name_onliner_market');
             $product->visible = $this->request->post('visible', 'boolean');
             $product->featured = $this->request->post('featured');
             $product->brand_id = $this->request->post('brand_id', 'integer');
@@ -415,16 +416,6 @@ class ProductAdmin extends Simpla
 
         $regions = $this->regions->get_regions();
         $this->design->assign('regions', $regions);
-        echo "<pre>";
-        print_r($product);
-        echo "</pre>";
-        echo "<pre>";
-        print_r($product->id);
-        echo "</pre>";
-        echo "<pre>";
-        print_r($_SERVER["DOCUMENT_ROOT"]);
-        echo "</pre>";
-
 
         return $this->design->fetch('product.tpl');
     }

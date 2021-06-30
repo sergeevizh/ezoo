@@ -9,9 +9,8 @@
 {/capture}
 
 {$meta_title = "Бонус" scope=parent}
-<script>
-	var limit_rows = {$limits|@count};
-</script>
+{* Подключаем Tiny MCE *}
+{include file='tinymce_init.tpl'}
 {literal}
 	<script src="design/js/autocomplete/jquery.autocomplete-min.js"></script>
 	<script src="design/js/jquery/datepicker/jquery.ui.datepicker-ru.js"></script>
@@ -64,13 +63,33 @@ $(function() {
 			}
 
 	});
-	
-	
-	
-	
-	
-	
-	});
+		
+});
+		function setDisable(name) {
+			var inpt = "input[name='bonus_" + name + "']";
+			if(name == 'dilevery') { inpt = '#select_dilevery'; }
+			if(name == 'cities') { inpt = '#select_cities'; }
+			if(name == 'brands') { inpt = '#select_brands'; }
+			if(name == 'products') { inpt = '#related_products'; }
+			if($('#st_' + name).prop('checked')){
+				$(inpt).attr('disabled', false);
+			}
+			else {
+				$(inpt).attr('disabled', true);
+			}
+		}
+		function setDisableTwo(name,inp) {
+			var inpt_to = inp + 'to';
+			var inpt_from = inp + 'from';
+			if($('#st_' + name).prop('checked')){
+				$("input[name='" + inpt_to + "']").attr('disabled', false);
+				$("input[name='" + inpt_from + "']").attr('disabled', false);
+			}
+			else {				
+				$("input[name='" + inpt_to + "']").attr('disabled', true);
+				$("input[name='" + inpt_from + "']").attr('disabled', true);
+			}
+		}
 </script>
 <style>
 .autocomplete-suggestions{
@@ -83,9 +102,16 @@ $(function() {
 .autocomplete-suggestions .selected { background:#F0F0F0; }
 .autocomplete-suggestions div { padding:2px 5px; white-space:nowrap; }
 .autocomplete-suggestions strong { font-weight:normal; color:#3399FF; }
+	.conditions li{
+		display: flex !important;
+	}
+	.condif{
+		margin-right: 10px;
+	}
+	#product .block label.property{
+		width: 150px !important;
+	}
 </style>
-
-	
 {/literal}
 {if $message_success}
 <!-- Системное сообщение -->
@@ -121,14 +147,15 @@ $(function() {
 	<div class="block">
 		<h2>Общие данные бонуса</h2>
 		<ul>
-			<li><label class=property>Включен:</label><input name="bonus_status" class="simpla_inp" type="checkbox" value="1" {if $bonus->status} checked {/if} /></li>
+			<li><label class=property>Активен:</label><input name="bonus_status" class="simpla_inp" type="checkbox" value="1" {if $bonus->status} checked {/if} /></li>
 			<li><label class=property>Имя Бонуса</label><input name="bonus_name" class="simpla_inp" type="text" value="{$bonus->name|escape}" required /></li>
-			<li><label class=property>Анонс</label><textarea name="bonus_desc_mini" class="simpla_inp" required>{$bonus->desc_mini|escape}</textarea></li>
-			<li><label class=property>Полное описание</label><textarea name="bonus_description" class="simpla_inp" required>{$bonus->description|escape}</textarea></li>
-			<li><label class=property>Скидка, %</label><input name="bonus_percent" class="simpla_inp" type="text" value="{$bonus->percent|escape}" /></li>
+			<li style="display:none;"><label class=property>Скидка, %</label><input name="bonus_percent" class="simpla_inp" type="text" value="0" /></li>
 		</ul>
+		<h2>Краткое описание</h2>
+		<textarea name="bonus_desc_mini" class="editor_small">{$bonus->desc_mini|escape}</textarea>
+		<h2>Полное описание</h2>
+		<textarea name="bonus_description" class="editor_small">{$bonus->description|escape}</textarea>
 	</div>
-
 		
 <!-- Изображения Бонуса -->
 	<div class="block layer images">
@@ -136,7 +163,7 @@ $(function() {
 		 <h3>Анонс</h3> 
 		 {if $bonus->img_preview}
 		<ul><li>
-			<a href='#' class="delete" id="del_pre" style="margin-top: 0px;"><img src='design/images/cross-circle-frame.png'></a>
+			<a href='#' class="delete" id="del_pre"><img src='design/images/cross-circle-frame.png'></a>
 			<img src="{$bonus->img_preview}" alt="" />
 		</li></ul>
 		{/if}
@@ -153,46 +180,8 @@ $(function() {
 		<div id="add_image"></div>
 		<span class="upload_image" id="add_img_det" style="{if $bonus->img_detail}display:none{/if}"><input id="fileToUpload" type="file" name="img_detail" multiple accept=".jpg,.jpeg,.png,.gif"></span>
 		<div id="add_image"></div>
-		
 	</div>
-	<style>
-	.conditions li{
-		display: flex !important;
-	}
-	.condif{
-		margin-right: 10px;
-	}
-	#product .block label.property{
-		width: 150px !important;
-	}
-	</style>
-	<script>
-		function setDisable(name) {
-			var inpt = "input[name='bonus_" + name + "']";
-			if(name == 'dilevery') { inpt = '#select_dilevery'; }
-			if(name == 'cities') { inpt = '#select_cities'; }
-			if(name == 'brands') { inpt = '#select_brands'; }
-			if(name == 'products') { inpt = '#related_products'; }
-			if($('#st_' + name).prop('checked')){
-				$(inpt).attr('disabled', false);
-			}
-			else {
-				$(inpt).attr('disabled', true);
-			}
-		}
-		function setDisableTwo(name,inp) {
-			var inpt_to = inp + 'to';
-			var inpt_from = inp + 'from';
-			if($('#st_' + name).prop('checked')){
-				$("input[name='" + inpt_to + "']").attr('disabled', false);
-				$("input[name='" + inpt_from + "']").attr('disabled', false);
-			}
-			else {				
-				$("input[name='" + inpt_to + "']").attr('disabled', true);
-				$("input[name='" + inpt_from + "']").attr('disabled', true);
-			}
-		}
-	</script>
+<!-- Условия Бонуса -->
 	<div class="block layer">
 		<h2>Условия бонуса</h2>
 		<ul class="conditions"><li>
@@ -203,14 +192,16 @@ $(function() {
 				<input onchange="setDisable('date_order');" name="st_date_order" id="st_date_order" class="simpla_inp condif" type="checkbox" value="1" {if $bonus->ifstatus['st_date_order']} checked {/if} />
 				<label class=property>Дата заказа:</label>
 				<input name="bonus_date_order" class="simpla_inp" type="date" value="{$bonus->date_order|escape}" {if !$bonus->ifstatus['st_date_order']} disabled {/if}/>
-			</li><li>
+			</li><li style="width: 800px;">
 				<input onchange="setDisableTwo('sale','bonus_date_ac_');" name="st_sale" id="st_sale" class="simpla_inp condif" type="checkbox" value="1" {if $bonus->ifstatus['st_sale']} checked {/if} />
-				<span style="display: inline-flex;" id="">
+				<span style="display: inline-flex;" id="" class="condif">
 					<label class=property>Акция c:</label>
 					<input name="bonus_date_ac_from" class="simpla_inp" type="date" value="{$bonus->time_from_sale|escape}" {if !$bonus->ifstatus['st_sale']} disabled{/if}/>
 					<label class="property" style="width: 20px !important;margin-left:10px;">по:</label>
 					<input name="bonus_date_ac_to" class="simpla_inp" type="date" value="{$bonus->time_to_sale|escape}" {if !$bonus->ifstatus['st_sale']} disabled{/if}/>
 				</span>
+				<label class=property style="width:110px !important">Осталось кодов:</label>
+				<span style="font-size: 16px;font-weight: 600;">{$bonus->count_promo}</span>
 			</li><li>
 				<input onchange="setDisableTwo('time', 'bonus_date_');" name="st_time" id="st_time" class="simpla_inp condif" type="checkbox" value="1" {if $bonus->ifstatus['st_time']} checked {/if} />
 				<span style="display: inline-flex;" id="">
@@ -222,10 +213,9 @@ $(function() {
 			</li><li>
 				<input onchange="setDisable('dilevery');" id="st_dilevery" name="st_dilevery" class="simpla_inp condif" type="checkbox" value="1" {if $bonus->ifstatus['st_dilevery']} checked {/if} />
 				<label class=property>Время доставки</label>
-				<select id="select_dilevery" name="bonus_time_dilevery" class="order-block__field js-time" style="width:145px;" {if !$bonus->ifstatus['st_dilevery']} disabled {/if}>
-					<option value="">Выберите время</option>
+				<select id="select_dilevery" name="bonus_time_dilevery[]" multiple="multiple" size="20" style="height:140px;" class="order-block__field js-time" {if !$bonus->ifstatus['st_dilevery']} disabled {/if}>
 					{foreach $times as $time=>$k}
-						<option value="{$time}" {if $time==$bonus->time_dilevery} selected {/if}>{$time}</option>
+						<option value="{$time}" {if in_array($time,$time_dilevery)} selected {/if}>{$time}</option>
 					{/foreach}
 				</select>
 				</li>
@@ -297,8 +287,13 @@ $(function() {
 			<label class=property>Добавить товар:</label>	
 			<input type=text name=related id='related_products' class="input_autocomplete" placeholder='Выберите товар чтобы добавить его' {if !$bonus->ifstatus['st_products']} disabled {/if} >
 	</div>
+<!-- Промокоды Бонуса -->
 	<div class="block layer">
-		<h2>Файл CSV</h2>
+	<h2>Промокоды, сервис</h2>
+		<ul>
+			<li><label class=property>Имя сервиса</label><input name="bonus_service" class="simpla_inp" type="text" value="{$bonus->service|escape}" /></li>
+		</ul>
+		<h2>Промокоды, файл CSV</h2>
 		<div id="column_left">
 			<label class=property>Выберите файл CSV</label>
 			<input type="file" class="import_file" name="csv_file" id="csv_file" accept=".csv"/>
@@ -309,7 +304,7 @@ $(function() {
 		{/if}
 	</div>
 	<div>
-	
+<!-- Кнопки Бонуса -->
 	{if $bonus->id}<input class="button_red button_delete" type="submit" name="delete" value="Удалить" />{/if}
 	<input class="button_green button_save" type="submit" name="save" value="Сохранить" />
 	</div>

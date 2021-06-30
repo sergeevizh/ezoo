@@ -82,28 +82,10 @@
 <!-- Системное сообщение (The End)-->
 {/if}
 <!-- Спиоск всех бонусов -->
-<style>
-	.mybonus{
-		width:165px;
-		vertical-align: middle;
-		text-align: center;
-		padding-top: 5px;
-		margin:15px;
-		float: left;
-		height: 20px;
-	}
-	.all{
-	    padding: 4px 3px 4px 3px;
-		background-color: #18a5ff;
-		color: #ffffff;
-		text-decoration: none;
-	}
-
-</style>
 <div class="block" id="main_list">
 	{foreach $bonusall as $bonus}
 		<a href="{url module=BonusOneAdmin id={$bonus->id} return=$smarty.server.REQUEST_URI}" title="{$bonus->name}" class="
-		{if $bonus->status == 1 }button_green {/if} {if $bonus->status == 0 }button_red {/if} mybonus">{$bonus->name|escape}</a>
+		{if $bonus->status == 1 }green_button {/if} {if $bonus->status == 0 }red_button {/if} mybonus">{$bonus->name|escape}</a>
 	{/foreach}
 </div>
 

@@ -42,7 +42,13 @@ class ThankyouView extends View
         // Варианты оплаты
         $payment_methods = $this->payment->get_payment_methods(array('delivery_id' => $order->delivery_id, 'enabled' => 1));
         $this->design->assign('payment_methods', $payment_methods);
-
+		//Если присвоен бонус
+		if(isset($_SESSION['bonusmy']) && !empty($_SESSION['bonusmy'])){
+			$this->design->assign('bonus', 'YES');
+			unset($_SESSION['bonusmy']);
+		}
+				
+		
         return $this->design->fetch('thanknyou.tpl');
     }
 

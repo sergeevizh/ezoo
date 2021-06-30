@@ -211,13 +211,13 @@ class IndexView extends View
             }
         }
 		if(isset($_COOKIE['bonus']) && !empty($_COOKIE['bonus']) && isset($_COOKIE['percent']) && !empty($_COOKIE['percent']) && $_COOKIE['percent']>0){
-			$deliveries[0]->bonus_sale = $deliveries[0]->total_price * $_COOKIE['percent'] / 100;
-			$deliveries[0]->bonus_price = $deliveries[0]->total_price - ($deliveries[0]->total_price * $_COOKIE['percent'] / 100);
+			$deliveries[0]->bonus_sale = number_format($deliveries[0]->total_price * $_COOKIE['percent'] / 100, 2, ".", ".");
+			$deliveries[0]->bonus_price = number_format($deliveries[0]->total_price - ($deliveries[0]->total_price * $_COOKIE['percent'] / 100), 2, ".", ".");
 			$cart->bonus_price = $deliveries[0]->bonus_price;
+			$_COOKIE['price_without_bonus'] = $deliveries[0]->total_price;
 		   }
-
         $this->design->assign('deliveries', $deliveries);
-
+		
         // Содержимое корзины
         $this->design->assign('cart', $cart);
 		//Бонус

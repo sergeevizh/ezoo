@@ -1273,6 +1273,8 @@ $(document).ready(function () {
       $('[name="flat_num"]').removeAttr("required");
       $('[name="flat_num"]').attr("prev-val", $('[name="flat_num"]').val());
       $('[name="flat_num"]').val("");
+	  
+      $('#express-div').hide();
 
       $('[name="self_discharge_time"]').removeAttr("required");
       $('[name="self_discharge_time"]').attr(
@@ -1300,6 +1302,7 @@ $(document).ready(function () {
       roomRow.show();
       timeRow.show();
       dateRow.show();
+	  $('#express-div').show();
 
       $('[name="address"]').attr("required", "required");
       $('[name="address"]').val($('[name="address"]').attr("prev-val"));

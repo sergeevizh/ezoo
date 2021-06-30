@@ -97,6 +97,9 @@ RewriteRule ^thank/?$	index.php?module=ThankyouView [L,QSA]
 # feedback
 RewriteRule ^contact/?$	index.php?module=FeedbackView  [L,QSA]
 
+# bonus
+RewriteRule ^bonus/?$	index.php?module=BonusView  [L,QSA]
+
 #downloads
 RewriteRule ^order/([^/]+)/([^/]+)/?$	index.php?module=OrderView&url=$1&file=$2  [L,QSA]
 

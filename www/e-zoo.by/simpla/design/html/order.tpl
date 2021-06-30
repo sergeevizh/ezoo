@@ -436,6 +436,14 @@
 			{/foreach}
 		</select>
 	</div>
+	{*
+	{if $order->bonus_sale} 
+	<div class="block discount layer">
+		<h2>Скидка по <a href="index.php?module=BonusOneAdmin&id={$order->bonus_id}">Бонусу</a></h2>
+		<input type=text name=bonus_sale value='{$order->bonus_sale}' style="background: transparent; border: none; color: #333333; text-align: right" onmousedown="(function(e){ e.preventDefault(); })(event, this)"> <span class=currency>{$currency->sign}</span>
+	</div>
+	{/if}
+	*}
 
 	<div class="total layer">
 	Итого<b> {$order->total_price} {$currency->sign}</b>

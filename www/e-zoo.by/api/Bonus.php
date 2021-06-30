@@ -16,37 +16,8 @@ require_once('Simpla.php');
  * Class Settings
  *
  *
- * Настройки сайта
- * @property string $site_name          Имя сайта
- * @property string $company_name       Имя компании
- * @property string $date_format        Формат даты
- * @property string $admin_email        Email для восстановления пароля
- * Оповещения
- * @property string $order_email - Email для оповещение о заказах
- * @property string $comment_email - Email для оповещение о комментариях
- * @property string $notify_from_email - Обратный адрес оповещений
- * Формат цены
- * @property string $decimals_point - Разделитель копеек
- * @property string $thousands_separator - Разделитель тысяч
- * Настройки каталога
- * @property string $products_num - Товаров на странице сайта
- * @property string $products_num_admin - Товаров на странице админки
- * @property string $max_order_amount - Максимум товаров в заказе
- * @property string $units - Единицы измерения товаров
- * Изображения товаров
- * @property string $watermark_offset_x - Горизонтальное положение водяного знака
- * @property string $watermark_offset_y - Вертикальное положение водяного знака
- * @property string $watermark_transparency - Прозрачность знака (больше — прозрачней)
- * @property string $images_sharpen - Резкость изображений (рекомендуется 20%)
- *
- * @property string $theme -
- * @property string $last_1c_orders_export_date -
- * @property string $license -
- *
- * @property string $pz_server
- * @property string $pz_password
- * @property string $pz_phones
- */
+ * Бонусная программа
+*/
 class Bonus extends Simpla
 {
     /**
@@ -112,6 +83,26 @@ class Bonus extends Simpla
         $this->db->query($query);
         return $this->db->result();
 	}
+	public function getBonusbyIdtoDay($id)
+	{
+		$query = $this->db->placehold("SELECT * FROM __bonuss as `bs` inner join __bonus_conditionss as `bc` ON bs.id=bc.id_bonus where bs.id=".$id." and bs.status = 1");
+        $this->db->query($query);
+        return $this->db->result();
+	}
+	public function getBonusbyStatus($st)
+	{
+		$query = $this->db->placehold("SELECT * FROM __bonuss as `bs` left join __bonus_conditionss as `bc` ON bs.id=bc.id_bonus where bs.status=".$st);
+        $this->db->query($query);
+        return $this->db->results();
+	}
+	
+	
+	public function getBonusbyStatusNotNull($st)
+	{
+		$query = $this->db->placehold("SELECT * FROM __bonuss as `bs` left join __bonus_conditionss as `bc` ON bs.id=bc.id_bonus where bs.status=".$st." AND bc.ifstatus !='' ");
+        $this->db->query($query);
+        return $this->db->results();
+	}
 	public function updateSbonuss($bonus)
     {
 		$sq = "UPDATE __bonuss SET `name` = '".$bonus->name."', `desc_mini` = '".$bonus->desc_mini."', `description` = '".$bonus->description.
@@ -133,20 +124,26 @@ class Bonus extends Simpla
 			$sq = "UPDATE __bonus_conditionss SET `date_order` = '".$bonus->date_order."', `time_dilevery` = '".$bonus->time_dilevery."', `cities` = '".$bonus->cities."', 
 				`summ` = '".$bonus->summ."', `brands` = '".$bonus->brands."', `products` = '".$bonus->products."', `time_from` = '".$bonus->time_from."', 
 				`time_to` = '".$bonus->time_to."', `time_from_sale` = '".$bonus->time_from_sale."', `time_to_sale` ='".$bonus->time_to_sale."', 
-				`ifstatus` = '".$bonus->ifstatus."', `csv` = '".$bonus->csv."' WHERE `id_bonus` = '".$bonus->id."'";
+				`ifstatus` = '".$bonus->ifstatus."', `csv` = '".$bonus->csv."', `service` = '".$bonus->service."' WHERE `id_bonus` = '".$bonus->id."'";
 			
 		$sql = $this->db->placehold($sq);
 		$this->db->query($sql);
 	}
 	public function updatebonuspromos($bonus)
     {	
-		foreach ($bonus->promokod as $prom){
-			$query = $this->db->placehold("INSERT INTO __bonus_promos (`id_bonus`, `promo`,`active`) VALUES (?,?,?)", $bonus->id, $prom['promo'],$prom['active']);
-        if(!$this->db->query($query)){
-			$query = $this->db->placehold("UPDATE __bonus_promos SET `id_bonus` = '".$bonus->id."', `active` = '".$prom['active']."' WHERE `promo` = '".$prom['promo']."'");
-			$this->db->query($query);
+		if(!empty($bonus->promokod)){
+			foreach ($bonus->promokod as $prom){
+				$query = $this->db->placehold("INSERT INTO __bonus_promos (`id_bonus`, `promo`,`active`,`service`) VALUES (?,?,?,?)", $bonus->id, $prom['promo'],$prom['active'],$bonus->service);
+				$this->db->query($query);
+			/*if(!$this->db->query($query)){
+				$query = $this->db->placehold("UPDATE __bonus_promos SET `id_bonus` = '".$bonus->id."', `active` = '".$prom['active']."', `service` = '".$bonus->service."', `user_id` = 0 WHERE `promo` = '".$prom['promo']."'");
+				$this->db->query($query);
+				}*/
 			}
-		}
+			}else {
+				$query = $this->db->placehold("UPDATE __bonus_promos SET `service` = '".$bonus->service."' WHERE `id_bonus` = '".$bonus->id."'");
+				$this->db->query($query);
+			}
 	}
 	public function getidbonus()
     {
@@ -155,6 +152,43 @@ class Bonus extends Simpla
 		$id = $this->db->result()->id;
 		return $id;
 	}
+	public function getbonusbyUser($ids_bonus)
+	{
+		if(empty($ids_bonus)) return;
+		$ids_bonus = explode(';',$ids_bonus);
+		$mass = array();
+		foreach ($ids_bonus as $key=>$id_bonus){
+			$mass[$key] = Bonus::getBonusbyIdtoDay($id_bonus);
+			$query = $this->db->placehold("SELECT `promo`, `service` FROM __bonus_promos WHERE id_bonus = ".$id_bonus." AND active = 1 and user_id=".$this->user->id);
+			$this->db->query($query);
+			$str = $this->db->result();
+			if(!empty($str)){
+				$mass[$key]->promo = $str->promo;
+				$mass[$key]->service = $str->service;
+			}
+		}
+		$ret = array();
+		foreach ($mass as $mas){
+			if(empty($mas)){ continue;}
+			if($mas->time_to == '0000-00-00')
+				$kk = time()+86400;
+			else $kk = strtotime($mas->time_to)+86400;
+			if(!empty($mas) && $kk >= time() && strtotime($mas->time_from) <= time() ){
+				if(!empty($mas->percent) && $mas->percent > 0 )
+					$ret[] = $mas;
+				if(!empty($mas->promo))
+					$ret[] = $mas;
+			}	
+		}
+		return $ret;
+	}
+	public function getcountpromo($id)
+    {
+		//$query = "SELECT count(promo) as count_promo FROM `s_bonus_promos` where active = 1 and id_bonus = ".$id;
+		$query = "SELECT count(promo) as count_promo FROM `s_bonus_promos` where user_id = 0 and id_bonus = ".$id;
+		$this->db->query($query);
+		return $this->db->result()->count_promo;
+	}
 	public function createBonus($bonus){
 		$query = $this->db->placehold("INSERT INTO __bonuss (`name`, `desc_mini`,`description`,`img_preview`, `img_detail`,`status`, `percent`) VALUES ('". 
 			$bonus->name."','".$bonus->desc_mini."','".$bonus->description."','".$bonus->img_preview."','".$bonus->img_detail."','".$bonus->status."','".$bonus->percent."')");
@@ -162,9 +196,9 @@ class Bonus extends Simpla
 		//получаем id текущего бонуса
 		$bonus->id = Bonus::getidbonus();
 		$query = $this->db->placehold("INSERT INTO __bonus_conditionss (`id_bonus`, `date_order`, `time_dilevery`, `cities`, `summ`, `brands`, `products`, `time_from`, 
-			`time_to`, `time_from_sale`, `time_to_sale`, `ifstatus`, `csv`) VALUES ('".$bonus->id."','".$bonus->date_order."','".$bonus->time_dilevery."','".$bonus->cities."','".
+			`time_to`, `time_from_sale`, `time_to_sale`, `ifstatus`, `csv`,`service`) VALUES ('".$bonus->id."','".$bonus->date_order."','".$bonus->time_dilevery."','".$bonus->cities."','".
 			$bonus->summ."','".$bonus->brands."','".$bonus->products."','".$bonus->time_from."','".$bonus->time_to."','".$bonus->time_from_sale."','".$bonus->time_to_sale."','".
-			$bonus->ifstatus."','".$bonus->csv)."')";
+			$bonus->ifstatus."','".$bonus->csv."','".$bonus->service)."')";
 		$this->db->query($query);
 		return $bonus->id;
 	}
@@ -182,14 +216,24 @@ class Bonus extends Simpla
     public function deleteBonus($bonus)
     {	
         $query = $this->db->placehold("DELETE FROM __bonuss  WHERE `id` = ?", $bonus->id);
-		//echo $query;
 		$this->db->query($query);
 		$query = $this->db->placehold("DELETE FROM __bonus_conditionss WHERE `id_bonus` = ?", $bonus->id);
-		//echo $query;
 		$this->db->query($query);
 		$query = $this->db->placehold("DELETE FROM __bonus_promos WHERE `id_bonus` = ?", $bonus->id);
-		//echo $query;
         $this->db->query($query);
     }
+	 public function deleteBonusByUser($id_bonus, $id_user)
+    {	
+		$query = $this->db->placehold("SELECT id_bonus FROM __users WHERE id = ".$id_user);
+		$this->db->query($query);
+		$bb = explode(';',$this->db->result()->id_bonus);
+		foreach($bb as $key=> $bbb){
+			if($bbb == $id_bonus) 
+				unset($bb[$key]);
+		}
+		$bb = implode(';',$bb);
+		$query = $this->db->placehold("UPDATE __users SET `id_bonus` = '".$bb."' WHERE id = ".$id_user);
+		$this->db->query($query);		
+	}
    
 }

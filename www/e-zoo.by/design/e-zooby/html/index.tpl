@@ -289,6 +289,10 @@
 								</li>
 							{/if}
 						{/foreach}
+							<li class="top-nav__item">
+								<a data-page="" href="{$config->root_url}/bonus"
+									   class="top-nav__link">Бонусы</a>
+							</li>
 					</ul>
 				</div>
 

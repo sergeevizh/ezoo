@@ -27,6 +27,9 @@ class OrderAdmin extends Simpla
             $order->comment = $this->request->post('comment');
             $order->flat_num = $this->request->post('flat_num');
 			$order->express = $this->request->post('express');
+			$order->bonus_sale = $this->request->post('bonus_sale');
+			$order->bonus_id = $this->request->post('bonus_id');
+			
             $order->promo = $this->request->post('promo');
             $order->self_discharge_time = $this->request->post('self_discharge_time');
             $order->note = $this->request->post('note');
@@ -833,7 +836,6 @@ class OrderAdmin extends Simpla
                 $order->email = $this->request->get('email', 'string');
             }
         }
-
         $this->design->assign('purchases', $purchases);
         $this->design->assign('purchases_count', $purchases_count);
         $this->design->assign('subtotal', $subtotal);

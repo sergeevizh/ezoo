@@ -473,6 +473,7 @@ class Products extends Simpla
 					p.brand_id,
 					p.name,
 					p.name_yan_market,
+					p.name_onliner_market,
 					p.annotation,
 					p.body,
 					p.position,

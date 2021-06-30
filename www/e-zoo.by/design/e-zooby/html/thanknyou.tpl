@@ -62,6 +62,9 @@
 			</div>
 			<div class="col">
 				<img src="{$config->root_url}/design/{$settings->theme|escape}/images/thankyou-logo.png" alt="e-zoo">
+				{if $bonus}
+				<div style="margin-top:15px;text-align: center;">Поздравляю! Вам подарен бонус,<br> получите его <a href="./bonus/">здесь</a>!</div>
+				{/if}
 			</div>
 		</section>
 	</div>

@@ -247,20 +247,34 @@
 									</div>
 									<div class="summ-price-all row-table">
 										<div class="col-table">На сумму:</div>
-										<div class="col-table value">{$cart->total_without_discount|convert}
+										<div class="col-table value" id="summ-price-all">{$cart->total_without_discount|convert}
 											&nbsp;{$currency->sign}</div>
 									</div>
 									<div class="js-discount row-table">
 										<div class="col-table">Скидка</div>
-										<div class="col-table value">
+										<div class="col-table value" id="skidka">
 											{($cart->total_without_discount-$cart->total_price)|convert}
 											&nbsp;{$currency->sign}
 										</div>
 									</div>
+									{if $deliveries[0]->bonus_sale}
+									<div class="js-discount2 row-table">
+										<div class="col-table">Скидка по бонусу</div>
+										<div class="col-table value" id="bonus">
+											{$deliveries[0]->bonus_sale|convert}
+											&nbsp;{$currency->sign}
+										</div>
+									</div>
+									{/if}
+									
 								</div>
 								<div class="text-basket-summ">Итого к оплате</div>
-								<div class="order-block__price"
-									 data-bind-text="total_price">{$deliveries[0]->total_price|convert}
+								<div class="order-block__price" data-bind-text="total_price">
+									{if $deliveries[0]->bonus_price}
+									 {$deliveries[0]->bonus_price|convert}
+									 {else}
+									 {$deliveries[0]->total_price|convert}
+									 {/if}
 									&nbsp;{$currency->sign}</div>
 							</div>
 
@@ -308,10 +322,12 @@
 										<input type="text" class="order-block__field js-input-flat"
 											   placeholder="Квартира №*" name="flat_num" value="{$flat_num}" required>
 									</div>
-									<div class="order-block__row js-order-block-row" style="text-align:center;">
+									{if date("H") >= 9 && date("H") < 18 && $region_short_name=="Минск"}
+									<div class="order-block__row js-order-block-row" id="express-div" style="text-align:center;">
 										<input type="checkbox" id="express" name="express" value="1"/>
 										<label for="express" style="font-size: 16px;">Доставка за 1 час</label>
 									</div>
+									{/if}
 									{if $city}
 									<div class="order-block__row js-order-block-row city_area_block">
 										<select name="city_area" class="order-block__field city_area">
@@ -598,7 +614,20 @@
 <script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
 <script>
 $( document ).ready(function() {
+	function getCookie(name) {
+  let matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
 	$("#express").click(function(){
+		let summ = parseFloat($('[name="price_hh_ends"]').val());
+		if(summ < 120){
+			$('#modal__bonus-summ').toggleClass('--open');
+			$('#express').removeAttr("checked");	
+			
+		}
 		if($("#express").prop('checked')){
 			$('.js-time').val('10:00 - 12:00');
 			$('.js-time').css('display','none');
@@ -613,8 +642,35 @@ $( document ).ready(function() {
 			if($("#express").prop('checked')){
 				$('.js-time').val('22:00 - 23:00');	
 				}
+				/*если бонус скидка
+				summ 	= parseFloat($('#summ-price-all').text());
+				skidka 	= parseFloat($('#skidka').text());
+				bonus 	= parseFloat($('#bonus').text());
+				console.log(summ );
+				console.log(skidka );
+				console.log(bonus );
+				price 	= summ + skidka - bonus;
+				$("[data-bind-text=total_price]").text(price + " руб");*/
 			},2000);
+	});
+	
+	$('#current-city-name').change(function(){
+		if($('#current-city-name').val() == 6){
+			$('#express-div').css('display','block');
+		}else{
+			$('#express-div').css('display','none');
+		}
 	});
 });
 </script>
-
+<div class="modal" id="modal__bonus-summ">
+    <div class="modal__body __bonus">
+		<div class="modal__content __bonus">
+          <div class="modal__close close__modal"><span></span><span></span></div>
+          <h3 class="modal__bonus-title">Внимание!</h3>
+          <div class="modal__bonus-text">
+			Доставка за час возможна при сумме заказа от 120 Руб.
+          </div> 
+        </div>
+    </div>
+</div>

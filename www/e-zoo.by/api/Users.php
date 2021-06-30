@@ -140,7 +140,7 @@ class Users extends Simpla
         }
 
         // Выбираем пользователя
-        $query = $this->db->placehold("SELECT u.id, u.email, u.password, u.name, u.phone, u.address, u.date_birthday, u.group_id, u.enabled, u.last_ip, u.created, g.discount, g.name as group_name
+        $query = $this->db->placehold("SELECT u.id, u.email, u.password, u.name, u.phone, u.address, u.date_birthday, u.group_id, u.enabled, u.last_ip, u.created, u.id_bonus, g.discount, g.name as group_name
 										FROM __users u
 										LEFT JOIN __groups g ON u.group_id=g.id
 											$where

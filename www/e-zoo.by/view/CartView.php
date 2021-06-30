@@ -16,7 +16,10 @@ class CartView extends View
     public function __construct()
     {
         parent::__construct();
-
+		
+		
+	
+		
         // Если передан id варианта, добавим его в корзину
         if ($variant_id = $this->request->get('variant', 'integer')) {
             $this->cart->add_item($variant_id, $this->request->get('amount', 'integer'));
@@ -59,8 +62,9 @@ class CartView extends View
         }
 
         // Если нажали оформить заказ
-        if (isset($_POST['checkout'])) {
-            if (!empty($this->request->post('press_check'))) {
+        if (isset($_POST['checkout'])) {	
+		
+	        if (!empty($this->request->post('press_check'))) {
                 return $this->design->fetch('cart.tpl');
             }
             $order = new stdClass;
@@ -82,7 +86,7 @@ class CartView extends View
             $order->flat_num = $this->request->post('flat_num');
             $order->express = $this->request->post('express');
 			if($order->express == 1){
-				//$time='';
+				$time='';
 			}
 
             $order->promo = $this->request->post('promo');
@@ -180,6 +184,7 @@ class CartView extends View
 
             //            Скидка
             $cart = $this->cart->get_cart();
+			
             if (!empty($this->request->post('city'))) {
                 if ($cityTempId && $cityTempId != '0') {
                     $this->db->query("SELECT * FROM __delivery_city WHERE delivery_id=? AND city_id=?", $order->delivery_id, $cityTempId);
@@ -192,6 +197,9 @@ class CartView extends View
                     }
                 }
             }
+			
+		
+			
             //$brand_id = $this->brands->get_brand(intval($product->brand_id));
             //$this->design->assign('brand', $this->brands->get_brand(intval($product->brand_id)));
 
@@ -269,6 +277,7 @@ class CartView extends View
                     }
                 }
             }
+			
 
 
 // Скидки END
@@ -330,9 +339,27 @@ class CartView extends View
             //         } else {
             $order->self_discharge_time .= ' ' . $time;
             // Добавляем заказ в базу
+			//Бонус
+			
+			
+			/*Вернуть после запуска бонусов
+			$order->bonus_sale = 0;
+			if(isset($_COOKIE['bonus']) && !empty($_COOKIE['bonus']) && isset($_COOKIE['percent']) && !empty($_COOKIE['percent']) && $_COOKIE['percent']>0){
+				$bonus_sale = number_format(($cart->total_without_discount - $order->coupon_discount) * $_COOKIE['percent'] / 100, 2, ".", ".");
+				$order->bonus_sale = $bonus_sale;
+				$order->bonus_id = $_COOKIE['bonus'];
+				Bonus::deleteBonusByUser($order->bonus_id ,$order->user_id);
+				unset($_COOKIE['percent']);
+				unset($_COOKIE['bonus']);
+				setcookie("percent","",time()-3600,"/");
+				setcookie("bonus","",time()-3600,"/");
+			}
+			*/
+			
+		
             $log = str_replace(array('	', PHP_EOL), '', print_r($order, true));
-            file_put_contents(__DIR__ . '/log_cart.txt', $log . PHP_EOL, FILE_APPEND);
-            $order_id = $this->orders->add_order($order);
+            file_put_contents(__DIR__ . '/log_cart.txt', $log . PHP_EOL, FILE_APPEND);      
+			$order_id = $this->orders->add_order($order);
             $_SESSION['order_id'] = $order_id;
 
             $city = $this->city->get_city($order->city_id);
@@ -388,22 +415,20 @@ class CartView extends View
             }*/
 //            TODO end
             $order = $this->orders->get_order($order_id);
-
-            // Стоимость доставки
+			// Стоимость доставки
             $delivery = $this->delivery->get_delivery($order->delivery_id);
             if (!empty($delivery) && $delivery->free_from > $order->total_price) {
+
                 $this->orders->update_order($order->id, array(
                     'delivery_price' => $delivery->price,
                     'separate_delivery' => $delivery->separate_payment
                 ));
             }
-
             // Отправляем письмо пользователю
             $this->notify->email_order_user($order->id);
 
             // Отправляем письмо администратору
             $this->notify->email_order_admin($order->id);
-
 
             // Добавляем историю заказа для неарегистрированных пользователей
             if (!isset($_COOKIE['user_id']) && isset($_COOKIE['shopping_cart'])) {
@@ -423,19 +448,145 @@ class CartView extends View
                     $i++;
                 }
             }
-
+			
+			/**Добавление бонуса пользователю*/	
+			//получаем активные бонусы
+			/*Вернуть после запуска бонусов
+			$bonus_all  = Bonus::getBonusbyStatusNotNull(1);	
+			//проверяем дату акции
+			$ret = array();
+			foreach ($bonus_all as $mas){
+				if(substr_count($mas->ifstatus,'st_sale')==0){
+					$ret[] = $mas;
+				}elseif(strtotime($mas->time_to_sale)+86400 >= time() && strtotime($mas->time_from_sale) <= time())
+					$ret[] = $mas;
+			}
+			$bonus_all = $ret;
+			//проверяем сумму заказа
+			$ret = array();
+			foreach ($bonus_all as $mas){
+				if(substr_count($mas->ifstatus,'st_summ')==0){
+					$ret[] = $mas;
+				}elseif($order->total_price > $mas->summ)
+					$ret[] = $mas;
+			}
+			$bonus_all = $ret;
+			//города
+			$ret = array();
+			foreach ($bonus_all as $mas){
+				if(substr_count($mas->ifstatus,'st_cities')==0){
+					$ret[] = $mas;
+				}elseif(substr_count($mas->cities,$order->city_id)>0)
+					$ret[] = $mas;
+			}
+			$bonus_all = $ret;
+			//Время доставки    st_dilevery
+			$ret = array();
+			$dil_time = str_replace(' ','',$_POST['time']);			
+			foreach ($bonus_all as $mas){
+				if(substr_count($mas->ifstatus,'st_dilevery')==0){
+					$ret[] = $mas;
+				}elseif(substr_count($mas->time_dilevery,$dil_time)>0){
+					$ret[] = $mas;
+				}
+			}
+			$bonus_all = $ret;
+			//Дата заказа
+			$ret = array();
+			$date_order = date("Y-m-d");//2021-06-28
+			foreach ($bonus_all as $mas){
+				if(substr_count($mas->ifstatus,'st_date_order')==0){
+					$ret[] = $mas;
+				}elseif($mas->date_order == $date_order)
+					$ret[] = $mas;
+			}
+			$bonus_all = $ret;
+			//продукты  $bonus_all->products
+			//массив товаров в заказе
+			$mass_product = array();
+			$mass_brands = array();
+			foreach ($cart->purchases as $pur){
+				$mass_product[] = $pur->product->id;
+				$mass_brands[]	= $pur->product->brand_id;
+			}		
+			$ret = array();
+			foreach ($bonus_all as $mas){
+				if(substr_count($mas->ifstatus,'st_products')==0){
+					$ret[] = $mas;
+				}else{
+					foreach($mass_product as $prod){
+						if(substr_count($mas->products,$prod)>0){
+							$ret[] = $mas;
+							break;
+						}
+					}
+				}			
+			}
+			$bonus_all = $ret;
+			//Бренды
+			$ret = array();
+				foreach ($bonus_all as $mas){
+				if(substr_count($mas->ifstatus,'st_brands')==0){
+					$ret[] = $mas;
+				}else{
+					foreach($mass_brands as $brand){
+						if(substr_count($mas->brands,$brand)>0){
+							$ret[] = $mas;
+							break;
+						}
+					}
+				}			
+			}
+			//промокоды проверка
+			$ret = array();
+			foreach ($bonus_all as $key=>$mas){
+				$query = $this->db->placehold("SELECT `promo`, `service`, `id_promo` FROM __bonus_promos WHERE id_bonus = ".$mas->id." AND active = 1 and user_id=0");
+				$this->db->query($query);
+				$str = $this->db->result();
+				if(!empty($str)){
+					$ret[$key] = $mas;
+					$ret[$key]->promo = $str->promo;
+					$ret[$key]->id_promo = $str->id_promo;
+				}
+			}
+			$bonus_all = $ret;
+			if(!empty($bonus_all)){
+				//получаем бонусы пользователя
+				$query = $this->db->placehold("SELECT `id_bonus` FROM __users WHERE id = ".$this->user->id);
+				$this->db->query($query);
+				$res = $this->db->result()->id_bonus;
+				$bb = array();
+				if(!empty($res )){
+					$bb = explode(';',$res);
+					foreach($bb as $key=>$b){
+						if(empty($b))
+							unset($bb[$key]);
+					}
+				}
+				foreach ($bonus_all as $bon){
+					if(!in_array($bon->id,$bb)){
+						$bb[] = $bon->id;
+						//пометить прокод для пользователя в s_promo
+						$query = $this->db->placehold("UPDATE __bonus_promos SET `user_id` = ".$this->user->id." WHERE `id_promo` = '".$bon->id_promo."'");
+						$this->db->query($query);	
+					}
+				}
+				$bb = implode(';',$bb);
+				$query = $this->db->placehold("UPDATE __users SET `id_bonus` = '".$bb."' WHERE id = ".$this->user->id);
+				$this->db->query($query);	
+				$_SESSION['bonusmy'] = 'YES';
+			}
+			*/
+			
             // Очищаем корзину (сессию)
             $this->cart->empty_cart();
             if (isset($_COOKIE['shopping_cart'])){
                 foreach ($_COOKIE['shopping_cart'] as $variant => $amount){
                     $this->cart->delete_item($variant);
                 }
-            }
-
+            }			
             // Перенаправляем на страницу заказа
             header('Location: ' . $this->config->root_url . '/thank?order_id=' . $order->id);
-
-            // }
 
         } else {
 
@@ -469,12 +620,9 @@ class CartView extends View
         $cart = $this->cart->get_cart();
         // Способы доставки
         $deliveries = $this->delivery->get_deliveries(array('enabled' => 1));
-
         /*
         echo $TotalWithOut;
         echo '<br/>'.$cart->total_without_discount_not_sale;*/
-
-
         $product_sale_price = Array();
         foreach ($deliveries as &$delivery) {
             //Пересчитываем стоимость товаров учитывая исключения и скидки
@@ -893,7 +1041,6 @@ class CartView extends View
 
         $date_and_time .= $this->settings->dateandtime;
         $this->design->assign('date_and_time', $date_and_time);
-
         /* История заказов в корзине */
         if (isset($_COOKIE['user_id'])) {
             $orders = $this->orders->get_orders(array('user_id' => $_COOKIE['user_id']));
@@ -982,12 +1129,17 @@ class CartView extends View
         $this->design->assign('featured_products', $featured_products);
 
 
-        /*   echo"<pre>";
-               echo print_r($deliveries,1);
-           echo"</pre>";*/
+ 
 
+		if(isset($_COOKIE['bonus']) && !empty($_COOKIE['bonus']) && isset($_COOKIE['percent']) && !empty($_COOKIE['percent']) && $_COOKIE['percent']>0){
+			$deliveries[0]->bonus_sale = number_format($deliveries[0]->total_price * $_COOKIE['percent'] / 100, 2, ".", ".");
+			$deliveries[0]->bonus_price = number_format($deliveries[0]->total_price - ($deliveries[0]->total_price * $_COOKIE['percent'] / 100), 2, ".", ".");
+			$cart->bonus_price = $deliveries[0]->bonus_price;
+			$_COOKIE['price_without_bonus'] = $deliveries[0]->total_price;
+		   }
         $this->design->assign('deliveries', $deliveries);
-
+		
+		
         // Варианты оплаты
         $payment_methods = $this->payment->get_payment_methods(array('enabled' => 1));
         $this->design->assign('payment_methods', $payment_methods);
@@ -1061,6 +1213,7 @@ class CartView extends View
             }
         }
         $this->design->assign('city', $city);
+		$this->design->assign('region_short_name', $_SESSION['region_short_name']);
 
         /* Вывод категорий */
         $this->design->assign('categories', $this->categories->get_categories_tree(array('visible' => 1, 'products_count' => true)));

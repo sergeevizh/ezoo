@@ -219,7 +219,15 @@ class CartAjax extends Simpla
         /*   echo"<pre>";
                echo print_r($deliveries,1);
            echo"</pre>";*/
-
+		//бонус
+		if(isset($_COOKIE['bonus']) && !empty($_COOKIE['bonus']) && isset($_COOKIE['percent']) && !empty($_COOKIE['percent']) && $_COOKIE['percent']>0){
+			$deliveries[0]->bonus_sale = $deliveries[0]->total_price * $_COOKIE['percent'] / 100;
+			$deliveries[0]->bonus_price = $deliveries[0]->total_price - ($deliveries[0]->total_price * $_COOKIE['percent'] / 100);
+			$cart->bonus_price = $deliveries[0]->bonus_price;
+		   }
+		//$deliveries[0]->total_price = $deliveries[0]->bonus_price;
+		//$cart->total_price = $deliveries[0]->bonus_price;
+		
         $this->design->assign('deliveries', $deliveries);
         $this->design->assign('cart', $cart);
 

@@ -234,7 +234,7 @@ class Cart extends Simpla
                 }
 
             }
-        } else {
+        } elseif(!empty($variants)) {
             foreach ($variants as $v) {
 
                 if ($v->stock > 0) {

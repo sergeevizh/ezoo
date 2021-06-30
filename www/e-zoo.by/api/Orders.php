@@ -29,7 +29,7 @@ class Orders extends Simpla
 
         $query = $this->db->placehold("SELECT  o.id, o.delivery_id, o.delivery_price, o.separate_delivery, o.self_discharge_time,
 										o.payment_method_id, o.paid, o.call_back, o.promo, o.payment_date, o.closed, o.discount, o.coupon_code, o.coupon_discount,
-										o.date, o.user_id, o.name, o.address, o.flat_num, o.express, o.phone, o.email, o.comment, o.status,
+										o.date, o.user_id, o.name, o.address, o.flat_num, o.express, o.phone, o.email, o.comment, o.status, o.bonus_sale, o.bonus_id,
 										o.url, o.total_price, o.note, o.wh_note, o.ip, o.courier_id, o.city_id/*regions*/, region_id/*/regions*/, o.custom_discount
 										FROM __orders o $where LIMIT 1");
 
@@ -283,17 +283,23 @@ class Orders extends Simpla
 		/*
 	    echo '<pre>';
         print_r($order);
+		print_r($_SESSION);
         echo '</pre>';
-        exit;
-		*/
+        */
+		
         $order->url = md5(uniqid($this->config->salt, true));
         $set_curr_date = '';
         if (empty($order->date)) {
             $set_curr_date = ', date=now()';
         }
+		
         $query = $this->db->placehold("INSERT INTO __orders SET ?%$set_curr_date", $order);
-        $this->db->query($query);
-        $id = $this->db->insert_id();
+        $this->db->query($query);		 
+		 /*echo '<pre>';
+		print_r($this->db->result());
+		 echo '</pre>';
+		 */
+		$id = $this->db->insert_id();
         return $id;
     }
 
@@ -831,7 +837,7 @@ class Orders extends Simpla
             return false;
         }
 
-        $query = $this->db->placehold("UPDATE __orders o SET o.total_price=IFNULL((SELECT SUM(p.price*p.amount)*(100-o.discount)/100 FROM __purchases p WHERE p.order_id=o.id), 0)+o.delivery_price*(1-o.separate_delivery)-o.coupon_discount, modified=NOW() WHERE o.id=? LIMIT 1",
+        $query = $this->db->placehold("UPDATE __orders o SET o.total_price=IFNULL((SELECT SUM(p.price*p.amount)*(100-o.discount)/100 FROM __purchases p WHERE p.order_id=o.id), 0)+o.delivery_price*(1-o.separate_delivery)-o.coupon_discount-o.bonus_sale, modified=NOW() WHERE o.id=? LIMIT 1",
             $order->id);
         $this->db->query($query);
         return $order->id;

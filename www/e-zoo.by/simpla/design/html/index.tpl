@@ -22,13 +22,7 @@
 
     <a href='{$config->root_url}' class='admin_bookmark'></a>
 
-    <form action="https://e-zoo.by/script_for_update_db_for_sale.php" method="post"
-          style="display: inline-block;margin-left: 32%;">
-
-    <a href="design/html/bonus.php"><input class="button_green" name="my_button" value="BONUS"
-            style="margin-left: 42%; margin-top: 10px;">
-    </a>
-    </form>
+  
 
     <form action="https://e-zoo.by/script_for_update_db_for_sale.php" method="post"
         style="display: inline-block;margin-left: 32%;">
@@ -85,11 +79,13 @@
             {if in_array('pages', $manager->permissions)}
                 <li><a href="index.php?module=PagesAdmin"><img src="design/images/menu/pages.png"><b>Страницы</b></a></li>
             {/if}
-
+			{if in_array('bonus', $manager->permissions)}
+                <li><a href="index.php?module=BonusAdmin"><img src="design/images/menu/bonus.png"><b>Бонус</b></a></li>
+            {/if}
             {if in_array('blog', $manager->permissions)}
                 <li><a href="index.php?module=BlogAdmin"><img src="design/images/menu/blog.png"><b>Блог</b></a></li>
             {/if}
-
+			{*
             {if in_array('comments', $manager->permissions)}
                 <li><a href="index.php?module=CommentsAdmin"><img
                             src="design/images/menu/comments.png"><b>Комментарии</b></a>
@@ -98,7 +94,7 @@
                 <li><a href="index.php?module=FeedbacksAdmin"><img
                             src="design/images/menu/comments.png"><b>Комментарии</b></a>
                 {/if}
-
+			*}
                 {if in_array('import', $manager->permissions)}
                 <li><a href="index.php?module=ImportAdmin"><img
                             src="design/images/menu/wizards.png"><b>Автоматизация</b></a></li>
