@@ -1,0 +1,40 @@
+*.DS_Store
+
+# compiled smarty
+compiled/*
+simpla/design/compiled/*
+*.tpl.php
+
+# IDE Project files
+/.idea
+/vendor
+# logos brands
+/files/brands/*
+!/files/brands/index.html
+
+# logos categories
+/files/categories/*
+!/files/categories/index.html
+!/files/categories/
+
+
+# digital products
+/files/downloads/*
+!/files/downloads/.htaccess
+!/files/downloads/index.html
+
+# original images products
+/files/originals/*
+!/files/originals/.htaccess
+!/files/originals/index.html
+
+# resizes images products
+/files/products/*
+!/files/products/index.html
+
+# uploads
+/files/uploads/*
+!/files/uploads/index.html
+
+# log
+/view/log_cart.txt

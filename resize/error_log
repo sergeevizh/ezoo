@@ -1,0 +1,70 @@
+[04-Aug-2020 23:06:24 Europe/Minsk] PHP Fatal error:  Uncaught exception 'ImagickException' with message 'unable to open image '/home/ezooby/public_html/files/originals/3is23_4.png': No such file or directory @ error/blob.c/OpenBlob/3496' in /home/ezooby/public_html/api/Image.php:362
+Stack trace:
+#0 /home/ezooby/public_html/api/Image.php(362): Imagick->readimage('/home/ezooby/pu...')
+#1 /home/ezooby/public_html/api/Image.php(70): Image->image_constrain_imagick('/home/ezooby/pu...', '/home/ezooby/pu...', '600', '600', NULL, '50', '50', 0.5, 0.15)
+#2 /home/ezooby/public_html/resize/resize.php(15): Image->resize('3is23_4.600x600...')
+#3 {main}
+  thrown in /home/ezooby/public_html/api/Image.php on line 362
+[04-Aug-2020 23:34:08 Europe/Minsk] PHP Fatal error:  Uncaught exception 'ImagickException' with message 'unable to open image '/home/ezooby/public_html/files/originals/unnamed (2).jpg': No such file or directory @ error/blob.c/OpenBlob/3496' in /home/ezooby/public_html/api/Image.php:362
+Stack trace:
+#0 /home/ezooby/public_html/api/Image.php(362): Imagick->readimage('/home/ezooby/pu...')
+#1 /home/ezooby/public_html/api/Image.php(70): Image->image_constrain_imagick('/home/ezooby/pu...', '/home/ezooby/pu...', '600', '600', NULL, '50', '50', 0.5, 0.15)
+#2 /home/ezooby/public_html/resize/resize.php(15): Image->resize('unnamed (2).600...')
+#3 {main}
+  thrown in /home/ezooby/public_html/api/Image.php on line 362
+[05-Aug-2020 02:07:29 Europe/Minsk] PHP Fatal error:  Uncaught exception 'ImagickException' with message 'unable to open image '/home/ezooby/public_html/files/originals/312012-коричневый.jpg': No such file or directory @ error/blob.c/OpenBlob/3496' in /home/ezooby/public_html/api/Image.php:362
+Stack trace:
+#0 /home/ezooby/public_html/api/Image.php(362): Imagick->readimage('/home/ezooby/pu...')
+#1 /home/ezooby/public_html/api/Image.php(70): Image->image_constrain_imagick('/home/ezooby/pu...', '/home/ezooby/pu...', '600', '600', NULL, '50', '50', 0.5, 0.15)
+#2 /home/ezooby/public_html/resize/resize.php(15): Image->resize('312012-\xD0\xBA\xD0\xBE\xD1\x80\xD0\xB8...')
+#3 {main}
+  thrown in /home/ezooby/public_html/api/Image.php on line 362
+[05-Aug-2020 02:23:46 Europe/Minsk] PHP Fatal error:  Uncaught exception 'ImagickException' with message 'unable to open image '/home/ezooby/public_html/files/originals/_viber_2020-06-25_16-01-45.jpg': No such file or directory @ error/blob.c/OpenBlob/3496' in /home/ezooby/public_html/api/Image.php:362
+Stack trace:
+#0 /home/ezooby/public_html/api/Image.php(362): Imagick->readimage('/home/ezooby/pu...')
+#1 /home/ezooby/public_html/api/Image.php(70): Image->image_constrain_imagick('/home/ezooby/pu...', '/home/ezooby/pu...', '600', '600', NULL, '50', '50', 0.5, 0.15)
+#2 /home/ezooby/public_html/resize/resize.php(15): Image->resize('_viber_2020-06-...')
+#3 {main}
+  thrown in /home/ezooby/public_html/api/Image.php on line 362
+[05-Aug-2020 04:14:12 Europe/Minsk] PHP Fatal error:  Uncaught exception 'ImagickException' with message 'unable to open image '/home/ezooby/public_html/files/originals/mini-light-ccn-packshot600x600.png': No such file or directory @ error/blob.c/OpenBlob/3496' in /home/ezooby/public_html/api/Image.php:362
+Stack trace:
+#0 /home/ezooby/public_html/api/Image.php(362): Imagick->readimage('/home/ezooby/pu...')
+#1 /home/ezooby/public_html/api/Image.php(70): Image->image_constrain_imagick('/home/ezooby/pu...', '/home/ezooby/pu...', '600', '600', NULL, '50', '50', 0.5, 0.15)
+#2 /home/ezooby/public_html/resize/resize.php(15): Image->resize('mini-light-ccn-...')
+#3 {main}
+  thrown in /home/ezooby/public_html/api/Image.php on line 362
+[05-Aug-2020 04:16:01 Europe/Minsk] PHP Fatal error:  Uncaught exception 'ImagickException' with message 'unable to open image '/home/ezooby/public_html/files/originals/s-l1600.jpg': No such file or directory @ error/blob.c/OpenBlob/3496' in /home/ezooby/public_html/api/Image.php:362
+Stack trace:
+#0 /home/ezooby/public_html/api/Image.php(362): Imagick->readimage('/home/ezooby/pu...')
+#1 /home/ezooby/public_html/api/Image.php(70): Image->image_constrain_imagick('/home/ezooby/pu...', '/home/ezooby/pu...', '600', '600', NULL, '50', '50', 0.5, 0.15)
+#2 /home/ezooby/public_html/resize/resize.php(15): Image->resize('s-l1600.600x600...')
+#3 {main}
+  thrown in /home/ezooby/public_html/api/Image.php on line 362
+[05-Aug-2020 08:46:10 Europe/Minsk] PHP Fatal error:  Uncaught exception 'ImagickException' with message 'unable to open image '/home/ezooby/public_html/files/originals/3is23_8.png': No such file or directory @ error/blob.c/OpenBlob/3496' in /home/ezooby/public_html/api/Image.php:362
+Stack trace:
+#0 /home/ezooby/public_html/api/Image.php(362): Imagick->readimage('/home/ezooby/pu...')
+#1 /home/ezooby/public_html/api/Image.php(70): Image->image_constrain_imagick('/home/ezooby/pu...', '/home/ezooby/pu...', '600', '600', NULL, '50', '50', 0.5, 0.15)
+#2 /home/ezooby/public_html/resize/resize.php(15): Image->resize('3is23_8.600x600...')
+#3 {main}
+  thrown in /home/ezooby/public_html/api/Image.php on line 362
+[05-Aug-2020 09:40:23 Europe/Minsk] PHP Fatal error:  Uncaught exception 'ImagickException' with message 'unable to open image '/home/ezooby/public_html/files/originals/Purina-Pro-Plan-senior 7 plus.jpg': No such file or directory @ error/blob.c/OpenBlob/3496' in /home/ezooby/public_html/api/Image.php:362
+Stack trace:
+#0 /home/ezooby/public_html/api/Image.php(362): Imagick->readimage('/home/ezooby/pu...')
+#1 /home/ezooby/public_html/api/Image.php(70): Image->image_constrain_imagick('/home/ezooby/pu...', '/home/ezooby/pu...', '600', '600', NULL, '50', '50', 0.5, 0.15)
+#2 /home/ezooby/public_html/resize/resize.php(15): Image->resize('Purina-Pro-Plan...')
+#3 {main}
+  thrown in /home/ezooby/public_html/api/Image.php on line 362
+[05-Aug-2020 16:18:28 Europe/Minsk] PHP Fatal error:  Uncaught exception 'ImagickException' with message 'The path is a directory: /home/ezooby/public_html/files/originals/' in /home/ezooby/public_html/api/Image.php:362
+Stack trace:
+#0 /home/ezooby/public_html/api/Image.php(362): Imagick->readimage('/home/ezooby/pu...')
+#1 /home/ezooby/public_html/api/Image.php(70): Image->image_constrain_imagick('/home/ezooby/pu...', '/home/ezooby/pu...', NULL, NULL, NULL, '50', '50', 0.5, 0.15)
+#2 /home/ezooby/public_html/resize/resize.php(15): Image->resize('Hill')
+#3 {main}
+  thrown in /home/ezooby/public_html/api/Image.php on line 362
+[05-Aug-2020 16:19:03 Europe/Minsk] PHP Fatal error:  Uncaught exception 'ImagickException' with message 'The path is a directory: /home/ezooby/public_html/files/originals/' in /home/ezooby/public_html/api/Image.php:362
+Stack trace:
+#0 /home/ezooby/public_html/api/Image.php(362): Imagick->readimage('/home/ezooby/pu...')
+#1 /home/ezooby/public_html/api/Image.php(70): Image->image_constrain_imagick('/home/ezooby/pu...', '/home/ezooby/pu...', NULL, NULL, NULL, '50', '50', 0.5, 0.15)
+#2 /home/ezooby/public_html/resize/resize.php(15): Image->resize('Hill')
+#3 {main}
+  thrown in /home/ezooby/public_html/api/Image.php on line 362

@@ -1,5 +1,0 @@
-/**
-TODO
- */
-ALTER TABLE `s_groups` ADD `image` VARCHAR(255) NULL DEFAULT NULL AFTER `name`;
-ALTER TABLE `s_comments` ADD `rating` TINYINT(1) NULL DEFAULT NULL AFTER `type`;
